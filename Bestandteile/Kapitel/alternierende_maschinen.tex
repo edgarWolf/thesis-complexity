@@ -46,8 +46,8 @@ Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden
 Aus dieser hinzugekommenen Art der Turingmaschinenen ergeben sich entsprechende Komplexitätsklassen,
 um die Komplexität dieser Turingmaschinen formal beschreiben zu können:
 \begin{definition}[Alternierende Komplexitätsklassen]
-    $ATIME(f(n))$ ist die Menge Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine M entschieden werden können. \\
-    $ASPACE(f(n))$ ist die Menge aller Sprachen, die von einer $f(n)$-platzbeschränkten alternierenden Turingmaschine M entschieden werden können.
+    $ATIME(f(n))$ ist die Menge Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine entschieden werden können. \\
+    $ASPACE(f(n))$ ist die Menge aller Sprachen, die von einer $f(n)$-platzbeschränkten alternierenden Turingmaschine entschieden werden können.
 \end{definition}
 Anhand dieser allgemeinenen Definition der Komplexitätsklassen ergeben sich die konkreten Pendants zu den bisher bekannten Klassen:
 \begin{definition}[Die Klasse $AP$]
@@ -60,5 +60,10 @@ Besonders für diese Klasse ergibt sich ein interessanter Zusammenhang zur platz
 \end{theorem}
 
 \begin{proof}[Beweis]
-    Das ist ein Beweis.
+    Für den Beweis muss die Inklusion in beide Richtungen gezeigt werden, also $AP \subseteq PSPACE$ und $PSPACE \subseteq AP$. \\
+    Die erste Inklusion folgt aus dem $PSPACE$-vollständigen Problem $TQBF$, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
+    Eine alternierende Turingmaschine $M$ kann einfach jede Belegung einer mit $\exists$ versehenen Variable existenziell raten, analog jede Belegung einer mit $\forall$ 
+    versehenen Variable universell.\\
+    Für die zweite Inklusion konstruieren wir eine Turingmaschine $M'$, die die gleiche Sprache wie $M$ entscheidet.
+    % TODO: Beweis zu Ende führen und Zitate.
 \end{proof}
