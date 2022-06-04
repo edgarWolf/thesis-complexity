@@ -39,11 +39,17 @@
 % Koma-Script Kompatibilität
 \usepackage{scrhack}
 \usepackage{amsthm}
+\usepackage{amssymb}
 % Das Dokument selbst mit seinen Bestandteilen
 % --------------------------------------------
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
+\newtheorem{definition}{Definition}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Satz}
+
+
 \begin{document}
 \frontmatter 
 % ----------------------------------------------
