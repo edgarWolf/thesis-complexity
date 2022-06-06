@@ -6,8 +6,20 @@ Die PH verfügt dabei über verschiedene Definitionen, die aber allesamt äquiva
 % TODO: Hier wenn Zeit und Platz dasa mit EXACT-INDSET oder so einfügen
 
 
+\section{Definition mit alternierenden Quantoren} \label{section: Definition PH mit alternierenden Quantoren}
+Eine Möglichkeit der Definition besteht übr die der alternierenden Quantoren. Es wird dabei zwischen zwei Sprachdefinitionen unterschieden.
+Sei dafür $p$ ein Polynom und $i \geq 1$. Dann ist eine Sprache $L$ in $\Sigma^p_i$, wenn es polynomiell zeitbeschränkte Turingmaschine $M$ gibt, 
+sodass für jede Eingabe $x \in \{0,1\}^*$ gilt:
+\begin{align*}
+    x \in L \Leftrightarrow \exists u_1 \forall u_2 ... Q_i u_i : M(x, u_1, ..., u_i) = 1
+\end{align*}
+Analog ist eine Sprache $L$ in $\Pi^p_i$, wenn es eine polynomiell zeitbeschränkte Turingmaschine $M$ gibt, sodass für jede Eingabe $x \in \{0,1\}^*$ gilt:
+\begin{align*}
+    x \in L \Leftrightarrow \forall u_1 \exists u_2 ... Q_i u_i : M(x, u_1, ..., u_i) = 1
+\end{align*}
+Aus diesen Definitionen kann sofort gefolgert werden dass $\Sigma^p_1 = NP$ und $\Sigma^p_1 = coNP$, denn die boolsche Formel reduziert auf 
+den ersten Quanotren entspricht genau der Definition der entsprechenden Komplexitätsklassen $NP$ bzw. $coNP$.
 \section{Definition mit alternierenden Turingmaschinen} \label{section: Definition PH mit ATM}
 
-\section{Definition mit alternierenden Quantoren} \label{section: Definition PH mit alternierenden Quantoren}
 
 \section{Definition mit Orakel-Turingmaschinen} \label{section: Definition PH mit Orakel-Turingmaschinen}
