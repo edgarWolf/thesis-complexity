@@ -10,15 +10,22 @@ Die PH verfügt dabei über verschiedene Definitionen, die aber allesamt äquiva
 Eine Möglichkeit der Definition besteht übr die der alternierenden Quantoren. Es wird dabei zwischen zwei Sprachdefinitionen unterschieden.
 Sei dafür $p$ ein Polynom und $i \geq 1$. Dann ist eine Sprache $L$ in $\Sigma^p_i$, wenn es polynomiell zeitbeschränkte Turingmaschine $M$ gibt, 
 sodass für jede Eingabe $x \in \{0,1\}^*$ gilt \cite{rossman_complexity_2015}:
+%todo: Die Erklärung der Quantifizierer und wann welcher Qunator hergenommen wir hinzufügen.%
 \begin{align*}
     x \in L \Leftrightarrow \exists u_1 \forall u_2 ... Q_i u_i : M(x, u_1, ..., u_i) = 1
 \end{align*}
+wobei $Q_i = \exists$, wenn $i$ gerade ist, sonst $Q_i = \forall$. \\
 Analog ist eine Sprache $L$ in $\Pi^p_i$, wenn es eine polynomiell zeitbeschränkte Turingmaschine $M$ gibt, sodass für jede Eingabe $x \in \{0,1\}^*$ gilt \cite{arora_computational_2009}:
 \begin{align*}
     x \in L \Leftrightarrow \forall u_1 \exists u_2 ... Q_i u_i : M(x, u_1, ..., u_i) = 1
 \end{align*}
+wobei $Q_i = \forall$, wenn $i$ gerade ist, sonst $Q_i = \exists$.
 Aus diesen Definitionen kann sofort gefolgert werden dass $\Sigma^p_1 = NP$ und $\Sigma^p_1 = coNP$, denn die boolsche Formel reduziert auf 
 den ersten Quanotren entspricht genau der Definition der entsprechenden Komplexitätsklassen $NP$ bzw. $coNP$.
+Die Polynomialzeithierarchie entspricht dann der Vereinigung über alle $Sigma^p_i$, sowie der Vereinigung aller $\Pi^p_i$:
+\begin{align*}
+    PH = \bigcup_{i \geq 1} \Sigma^p_i = \bigcup_{i \geq 1} \Pi^p_i 
+\end{align*}
 \section{Definition mit alternierenden Turingmaschinen} \label{section: Definition PH mit ATM}
 
 
