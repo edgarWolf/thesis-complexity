@@ -3,7 +3,7 @@ Die Komplexitätsklassen $P$, $NP$, und $coNP$ decken einige natürliche Entsche
 nicht $EXPTIME$ zuzuordnen sind. Für diese Probleme wurde die Polynomialzeithierarchie (abkürzend PH) eingeführt, sodass 
 auch diese Probleme entsprechend auf ihre Komplexität untersucht werden können.
 Die PH verfügt dabei über verschiedene Definitionen, die aber allesamt äquivalent sind.
-% TODO: Hier wenn Zeit und Platz dasa mit EXACT-INDSET oder so einfügen
+% TODO: Hier wenn Zeit und Platz das mit EXACT-INDSET oder so einfügen
 
 
 \section{Definition mit alternierenden Quantoren} \label{section: Definition PH mit alternierenden Quantoren}
@@ -22,11 +22,14 @@ Analog ist eine Sprache $L$ in $\Pi^p_i$, wenn es eine polynomiell zeitbeschrän
 wobei $Q_i = \forall$, wenn $i$ gerade ist, sonst $Q_i = \exists$.
 Aus diesen Definitionen kann sofort gefolgert werden dass $\Sigma^p_1 = NP$ und $\Sigma^p_1 = coNP$, denn die boolsche Formel reduziert auf 
 den ersten Quanotren entspricht genau der Definition der entsprechenden Komplexitätsklassen $NP$ bzw. $coNP$.
-Die Polynomialzeithierarchie entspricht dann der Vereinigung über alle $Sigma^p_i$, sowie der Vereinigung aller $\Pi^p_i$:
+Die Polynomialzeithierarchie entspricht dann der Vereinigung über alle $\Sigma^p_i$, sowie der Vereinigung aller $\Pi^p_i$ \cite{sipser_introduction_2012}:
 \begin{align*}
     PH = \bigcup_{i \geq 1} \Sigma^p_i = \bigcup_{i \geq 1} \Pi^p_i 
 \end{align*}
 \section{Definition mit alternierenden Turingmaschinen} \label{section: Definition PH mit ATM}
+Eine äquivalente und mit der Definition über die alternierenden Quantoren verwandte Definition ist über alternierende Turingmaschinen möglich.
+Das Konzept wurde bereits in \ref{section: alternierende Turingmaschine} erläutert und dient nun als Basis für die Definition der Polynomialzeithierarchie.
 
 
 \section{Definition mit Orakel-Turingmaschinen} \label{section: Definition PH mit Orakel-Turingmaschinen}
+Eine weitere Definition erfolgt über Turingmaschinen mit Orakel. 
