@@ -46,17 +46,20 @@ Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden
 Aus dieser hinzugekommenen Art der Turingmaschinenen ergeben sich entsprechende Komplexitätsklassen,
 um die Komplexität dieser Turingmaschinen formal beschreiben zu können:
 \begin{definition}[Alternierende Komplexitätsklassen]
+    % Check: Muss hier nicht O Notation?
     $ATIME(f(n))$ ist die Menge Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine entschieden werden können. \\
     $ASPACE(f(n))$ ist die Menge aller Sprachen, die von einer $f(n)$-platzbeschränkten alternierenden Turingmaschine entschieden werden können.
 \end{definition}
 Anhand dieser allgemeinenen Definition der Komplexitätsklassen ergeben sich die konkreten Pendants zu den bisher bekannten Klassen:
+% TODO: Hier vllt über die Vereinugng der ATIME Klassen gehen, ist formal korrekter
 \begin{definition}[Die Klasse $AP$]
+    $$AP = \bigcup_{c \in \mathbb{N}} ATIME(n^c)$$
     $AP$ ist die Menge aller Sprachen, die von einer polynomiell-zeitbeschränkten Turingmaschine entschieden werden können.
 \end{definition}
 Besonders für diese Klasse ergibt sich ein interessanter Zusammenhang zur platzbasierten Komplexitätsklasse $PSPACE$:
 
 \begin{theorem}
-    $AP = PSPACE$
+    $$AP = PSPACE$$
 \end{theorem}
 
 \begin{proof}[Beweis]
