@@ -7,12 +7,12 @@ kann wie ein gewöhnlicher nichtdeterministischer Algorithmus bei jedem Berechnu
 Während ein nichtdeterministischer Algorithmus akzeptiert, wenn mindestens ein Berechnugspfad akzeptiert, so tritt bei einem alternierenden Algorithmus eine Fallunterscheidung ein.
 Die aktuelle Berechnug innerhalb des Algorithmus akzeptiert dann entweder, wenn wie beim Nichtdeterminusmus, mindestens ein Berechnugspfad akzeptiert, oder wenn alle Berechnugspfade akzeptieren.
 Entscheidend für den Modus der Akzeptanz der Berechnung ist die Kennzeichnung des Berechnungsschrittes, der die Information enthält, unter welchem Modus dieser akzeptiert \cite{sipser_introduction_2012}.
-Diese Kennzeichnung wir in der Literatur meist über die logischen Quantoren $\exists$ und $\forall$ vorgenommen, manche Autoren wie Sipser verwenden die Symbole $\land$ und $\lor$, für die Darstellung als logisches Und bzw. als logisches Oder.
+Diese Kennzeichnung wird in der Literatur meist über die logischen Quantoren $\exists$ und $\forall$ vorgenommen, manche Autoren wie Sipser verwenden die Symbole $\land$ und $\lor$, für die Darstellung als logisches Und bzw. als logisches Oder.
 Im ersten Fall akzeptiert die Berechnung, wenn mindestens ein Kind-Berechnugspfad akzeptiert, analog akzeptiert ein universeller Zustand genau dannn, wenn alle Kind-Berechnugspfade akzeptieren.
 Eine Analogie hierfür könnte ein Prozess in einem Computer sein, der bei jedem Berechnungsschritt mehrere neue Prozesse erzeugt.
 Jeder dieser Prozesse enthält eine Information darüber, ob er eine existenzielle oder universelle Berechnug durchführt. Der erzeugende Prozess gibt nun selber $1$ zurück, wenn er sich in einem existenziellen Zustand befindet
 und mindestens ein Kind-Prozess mit $1$ antwortet, oder er sich in einem universellen Prozess befindet und alle Prozesse mit $1$ antworten \cite{sipser_introduction_2012}.
-Wir können daher den Nichtdeterminusmus als einen Spezalfall der Alternierung auffassen, bei dem Berechungen ausschließlich existenziell durchgeführt werden \cite{chandra_alternation_1976}.
+Der Nichtdeterminismus kann als Spezialfall der Alternierung betrachtet werden, bei dem Berechungen ausschließlich existenziell durchgeführt werden \cite{chandra_alternation_1976}.
 
 \section{Alternierende Turingmaschinen} \label{section: alternierende Turingmaschine}
 Das Konzept der Alternierung lässt sich auf Turingmaschinen übetragen, wodurch sich folgende Definition ergibt:
@@ -27,7 +27,7 @@ Der Name \enquote{alternierende Turingmaschine} kommt daher, dass die Turingmasc
 Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden:
 \begin{definition}[Akzeptanz einer alternierenden Turingmaschine]\cite{arora_computational_2009}
     Sei $G_{M, x}$ der Konfigurationsgraph der ATM $M$ auf die Eingabe $x \in \{0,1\}*$, sodass eine Kante von einer Konfiguration $C$ zu 
-    einer Konfiguration $C$ einen Übergang von $C$ zu $C'$ über die Transitionsfunktion von $M$ darstellt. Dann ist die Akzeptanz über folgenden
+    einer Konfiguration $C'$ einen Übergang von $C$ zu $C'$ über die Transitionsfunktion von $M$ darstellt. Dann ist die Akzeptanz über folgenden
     Markierungsalgorithmus definiert:
 
     \begin{itemize}
