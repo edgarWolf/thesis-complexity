@@ -38,4 +38,12 @@ Die Sprachen $\Sigma^p_i$ und $\Pi^p_i$ sind dann definiert als \cite{arora_comp
 $\Sigma^p_i$ beschreibt also die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit existenziellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
 $\Pi^p_i$ beschreibt analog die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit universellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
 \section{Definition mit Orakel-Turingmaschinen} \label{section: Definition PH mit Orakel-Turingmaschinen}
-Eine weitere Definition erfolgt über Turingmaschinen mit Orakel. 
+Eine weitere Definition erfolgt über Turingmaschinen mit Zugriff auf ein Orakel. Dabei wird auf ein Orakel zugegriffen,
+das ein vollständiges Problem einer Komplexitätsklasse entscheiden kann. Sei für die folgenden Ausführungen $A^B$, sodass eine $A$ eine Turingmaschine, die die Sprache $A$ entscheidet mit Zugriff auf ein Orakel ist, welches $B$ entscheiden kann.
+Dann ist die Polynomialzeithierarchie induktiv, für $i \geq 0$ definiert als \cite{rothe_komplexitatstheorie_2008}:
+\begin{align*}
+    & \Delta^p_0 = \Sigma^p_0 = \Pi^p_0 = P; \\
+    & \Delta^p_{i+1} = P^{\Sigma^p_i}, \Sigma^p_{i+1} = NP^{\Sigma^p_i}, \Pi^p_{i+1} = coNP^{\Sigma^p_i}, \\
+    & PH = \bigcup_{k \geq 0} \Sigma^p_k
+\end{align*}
+% TODO:  Hier nochmal drauf eingehen, dass die Deltas hier neu sind, und das P nochmal explizit einbezogen wird.
