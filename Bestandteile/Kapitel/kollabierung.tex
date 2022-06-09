@@ -5,4 +5,22 @@
 \section{Kollabieren der PH} \label{section: Kollabieren der PH}
 Es wird vermutet, dass sich die Hierarchie über unendlich viele Stufen verfügt und eine Stufe $i$ in Stufe $i + 1$ echt enthalten ist,
 also dass $\Sigma^p_i \subset \Sigma^p_{i+1}$ und $\Pi^p_i \subset \Pi^p_{i+1}$ für $i \geq 1$. Diese Inklusion ist aber nicht bewiesen und stellt eine offene
-Forschungsfrage dar. Die Konsequenzen einer endlichen PH wären weitreichend:
+Forschungsfrage dar. Eine weitere Vermutung ist, dass es zwar vollständige Probleme je Stufe in der Polynomialzeithierarchie gibt, aber keine vollständige Probleme der gesamten PH.
+\begin{theorem}
+    Sei $L$ eine PH-vollständige Sprache. Dann kollabiert die PH auf eine endliche Anzahl von Stufen. 
+\end{theorem}
+
+\begin{proof}[Beweis]
+    Da L PH-vollständig ist, sind alle Sprachen aus PH auf diese Sprache L reduzierbar:
+    $$
+    \forall L' \in PH: L \leq_p L'
+    $$
+    Sei nun L in der Stufe $i$, $i \geq 0$, also $L \in \Sigma^p_i$. Da nun alle Sprachen auf L reduziert werden können, insbesondere
+    auch Sprachen aus den Stufen $j > i$, sind auch diese Sprachen in Stufe i enthalten.
+    Das heißt, es gilt: 
+    $$
+    PH \subseteq \Sigma^p_i
+    $$ 
+    und das auch für alle Klassen $\Sigma^p_j, j> i$.
+    Aus dieser Inklusion folgt somit direkt, dass die PH nur $i$ Stufen besitzt, und auf die Stufe $i$ kollabiert.
+\end{proof}
