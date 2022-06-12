@@ -1,4 +1,4 @@
-\chapter{Bezug der PH zur Komplexitätstheorie} \label{chapter: Bezug der PH zur Komplexitätstheorie}
+\chapter{Eigenschaften der PH} \label{chapter: Eigenschaften der PH}
 % TODO: Vllt umbennenn in "Eigenschaften der PH"
 \section{Vollständige Mengen innerhalb der PH} \label{section: Vollständige Mengen innerhalb der PH}
 
@@ -13,7 +13,7 @@ Forschungsfrage dar. Eine weitere Vermutung ist, dass es zwar vollständige Prob
 \begin{proof}[Beweis]
     Da L PH-vollständig ist, sind alle Sprachen aus PH auf diese Sprache L reduzierbar:
     $$
-    \forall L' \in PH: L \leq_p L'
+    \forall L' \in PH: L' \leq_p L
     $$
     Sei nun L in der Stufe $i$, $i \geq 0$, also $L \in \Sigma^p_i$. Da nun alle Sprachen auf L reduziert werden können, insbesondere
     auch Sprachen aus den Stufen $j > i$, sind auch diese Sprachen in Stufe i enthalten.
@@ -23,4 +23,14 @@ Forschungsfrage dar. Eine weitere Vermutung ist, dass es zwar vollständige Prob
     $$ 
     und das auch für alle Klassen $\Sigma^p_j, j> i$.
     Aus dieser Inklusion folgt somit direkt, dass die PH nur $i$ Stufen besitzt, und auf die Stufe $i$ kollabiert.
+\end{proof}
+
+Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine für eine Stufe $\Sigma^p_i = \Pi^p_i$ gilt:
+
+\begin{theorem}
+    Sei $\Sigma^p_i = \Pi^p_i$ für eine Stufe $i, i \geq 0$. Dann kollabiert die PH auf die Stufe $i$.
+\end{theorem}
+
+\begin{proof}[Beweis]
+
 \end{proof}

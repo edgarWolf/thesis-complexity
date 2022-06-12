@@ -42,8 +42,13 @@ Eine weitere Definition erfolgt über Turingmaschinen mit Zugriff auf ein Orakel
 das ein vollständiges Problem einer Komplexitätsklasse entscheiden kann. Sei für die folgenden Ausführungen $A^B$, sodass eine $A$ eine Komplexitätsklasse ist, deren Sprachen durch eine Turingmaschine mit Zugriff auf ein Orakel, welches alle Probleme aus $B$ entscheiden kann, entscheidet. 
 Dann ist die Polynomialzeithierarchie induktiv, für $i \geq 0$ definiert als \cite{rothe_komplexitatstheorie_2008}:
 \begin{align*}
-    & \Delta^p_0 = \Sigma^p_0 = \Pi^p_0 = P; \\
-    & \Delta^p_{i+1} = P^{\Sigma^p_i}, \Sigma^p_{i+1} = NP^{\Sigma^p_i}, \Pi^p_{i+1} = coNP^{\Sigma^p_i}, \\
+    & \Delta^p_0 = \Sigma^p_0 = \Pi^p_0 = P \\
+    & \Delta^p_{i+1} = P^{\Sigma^p_i} \\
+    &\Sigma^p_{i+1} = NP^{\Sigma^p_i} \\
+    & \Pi^p_{i+1} = coNP^{\Sigma^p_i} \\
     & PH = \bigcup_{k \geq 0} \Sigma^p_k
 \end{align*}
+Der Unterschied zu den anderen zwei Definitionen bestheht dabei über die Komplexitätsklassen $\Delta^p_i$, die die Komplexitätsklasse $P$
+mit Zugriff auf Orakel betrachtet. Jedoch spielt diese Komplexitätsklasse in der strukturellen Betrachtung der Polynomialzeithierarchie keine große
+Rolle und ist für die weiteren Ausführungen nicht von hoher Relevanz.
 % TODO:  Hier nochmal drauf eingehen, dass die Deltas hier neu sind, und das P nochmal explizit einbezogen wird.
