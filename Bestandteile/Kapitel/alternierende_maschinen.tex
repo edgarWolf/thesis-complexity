@@ -33,12 +33,11 @@ Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden
     \begin{itemize}
         \item Markiere die Konfigurationen terminierend in einem akzeptierenden Zustand $C_{accept}$ mit \texttt{ACCEPT}.
     \end{itemize}
-    Wiederhole
     \begin{itemize}        
         \item Wenn eine Konfiguration $C$ mit $\exists$ markiert ist, und es eine Kante von $C$ zu $C'$ mit Markierung \texttt{ACCEPT} gibt, markiere $C$ mit \texttt{ACCEPT}.
         \item Wenn eine Konfiguration $C$ mit $\forall$ markiert ist, und alle Kanten von $C$ zu Konfigurationen $C'$ mit Markierung \texttt{ACCEPT} führen, markiere $C$ mit \texttt{ACCEPT}.
+        \item Wiederhole die obigen Schritte, bis keine weitere Markierung mehr möglich ist.
     \end{itemize}
-    bis keine Markierung mehr möglich ist.
 
     Die ATM M akzeptiert genau dann, wenn am Ende dieses Algorithmus die Startkonfiguration $C_{start}$ mit \texttt{ACCEPT} markiert ist.
 \end{definition}
