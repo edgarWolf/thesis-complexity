@@ -32,8 +32,8 @@ Sei dafür $M$ eine $f(n)$ zeitbeschränkte ATM und $i \geq 1$  mit $i - 1$ mit 
 oder die Sprache $\Pi_i TIME(f(n))$, falls der erste Zustand ein universeller ist \cite{arora_computational_2009}.
 Die Sprachen $\Sigma^p_i$ und $\Pi^p_i$ sind dann definiert als \cite{arora_computational_2009}:
 \begin{align*}
-    \Sigma^p_i = \bigcup_{c \in \mathbb{N}} \Sigma_i TIME(f(n)) \\
-    \Pi^p_i = \bigcup_{c \in \mathbb{N}} \Pi_i TIME(f(n))
+    \Sigma^p_i = \bigcup_{c \in \mathbb{N}} \Sigma_i TIME(n^c) \\
+    \Pi^p_i = \bigcup_{c \in \mathbb{N}} \Pi_i TIME(n^c)
 \end{align*}
 $\Sigma^p_i$ beschreibt also die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit existenziellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
 $\Pi^p_i$ beschreibt analog die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit universellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
