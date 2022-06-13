@@ -32,5 +32,14 @@ Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine fü
 \end{theorem}
 
 \begin{proof}[Beweis]
-
+    Nach Voraussetzung gibt es eine Sprache $L$, sodass für jede Eingabe $x \in \{0,1\}^*$ eine Funktion mit 
+    $$
+    x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^* \forall u_2 \in \{0,1\}^* ... Q_{i+1}u_{i + 1} \in \{0,1\}^* : M(x, u_1, ..., u_{i+1}) = 1
+    $$
+    existiert.
+    Nun wird eine weitere Sprache $L'$ wie folgt konstruiert:
+    $$
+    \langle x, u_1 \rangle \in L' \Leftrightarrow \forall u_2 \in \{0,1\}^* \exists u_3 \in \{0,1\}^* ... Q_{i+1}u_{i + 1} \in \{0,1\}^* : M(x, u_1, ..., u_{i+1}) = 1
+    $$
+    Offensichtlich ist $L \in \Sigma^p_i$ und $L' \in \Pi^p_i$.
 \end{proof}
