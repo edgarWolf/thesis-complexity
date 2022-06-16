@@ -9,8 +9,10 @@
 \vspace*{1cm}
 
 \noindent 
-Diese Arbeit im Rahmen des Seminars \enquote{Komplexität} soll einen Überblick über das Thema der Polynomialzeithierarchie, kurz PH geben. Dabei werden die wichtigsten inhaltlichen Aspekte zusammengefasst
-und die Konzepte sowie Beweise näher beleuchtet. Nach einer Einführung in das Thema durch eine Einordnung des Begriffs im Kontext der Komplexitätsklassen und einer anschließenden Aufbereitung der 
-verschiedenen Definitionen, wird das Konzept der alternierenden Turingmaschinen aufbereitet. Im Zuge dessen wird der Zusammenhang der Gleichheit der Klassen AP und PSPACE gezeigt. Schlussendlich 
-wird auf ein mögliches Kollabieren der Hierarchie eingegangen und die Bedeutung dieses Falls. Abschließend wird eine Zusammenfassung über den Stand der Forschung formuliert, sowie ein Ausblick auf die Relevanz
-weiterer Erkenntnisse in diesem Themengebiet.
+Die Polynomialzeithierarchie, kurz PH, beschreibt die Hierarchie der polynomiell zeitbeschränkten Komplexitätsklassen, je nach Definition beginnend bei P oder NP.
+Die gesamte Hierarchie ist dabei in PSPACE enthalten, wobei die Frage, ob PH = PSPACE nicht geklärt ist.
+Die Definition dieser Hierarchie erfolgt dabei über mehrere Arten, etwa über den Mechanismus der Alternierung, einer Verallgemeinerung des Nichtdeterminusmus, oder aber über Turingmaschinen mit Zugriff auf ein Orkal, welches 
+Probleme aus polynomiell zeitbeschränkten Klassen entscheiden kann. Die Definitionen sind dabei äquivalent und beschreiben gleichermaßen diese Hierarchie. Es scheint, dass die Abstufungen
+dieser Hierarchie echte Inklusionen sind, ein Beweis hierfür ist aber nicht erbracht. Jedoch wäre die gegenteilige Annahme in dem Sinne unplausibiel, als dass die zusätzliche Mächtigkeit in der Berechnug, die 
+die Alternierung bzw. die Orakel miteinbringen, eigentlich keine echte erhöhte Mächtigkeit bewirken. Die Folge wäre, dass die Hierarchie kollabiert, und auf eine endliche Anzahl an Stufen zusammenbricht. Sollte sie auf die unterste Stufe fallen, so wäre P = NP,
+und die Hierarchie würde als Gesamtes kollabieren. In jedem Fall wäre aber die Konsequenz bei einem Kollabieren, dass PH = PSPACE, und alle PSPACE-vollständigen Mengen wären somit auch PH-vollständig.

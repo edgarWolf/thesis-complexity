@@ -1,48 +1,29 @@
 \chapter{Einleitung}
-Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus "`elementum semper nisi"' \cite{Fischer.2010b}. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. 
-
+Die Komplexitätstheorie beschäftigt sich mit der \enquote{Schwierigkeit} von Problemen, im Sinne vom Platzverbrauch sowie Zeitverbrauch. Sie unterteilt dabei die Probleme in Komplexitätsklassen ein, 
+um so ihre Schwierigkeit miteineander vergleichen zu können. Ein entscheidendes Konzept ist dabei der Nichtdeterminismus, sodass Entscheidungsprobleme, für die kein deterministischer Polynomialzeit-Algorithmus bekannt ist,
+über diese Klasse abgebildet werden. Es wird vermutet dass P echt in der Klasse NP enthalten ist, und die Probleme aus NP sich tatsächlich nicht deterministisch effizient entscheiden lassen.
+Durch die Klasse coNP werden Probleme beschrieben, deren Komplement in NP liegen. Diese Probleme erscheinen nochmals schwieriger als die Probleme in NP, und auch hier stellt sich die Frage, ob coNP = NP.
+Es werden aber nicht alle natürlichen Probleme durch diese drei Klassen charakterisiert. Probleme, die sicht nicht ausschließlich nichtdeterministisch entscheiden lassen, werden mittels diesen Klassen nicht hinreichend charakterisiert.
+Ein Konzept, welches diese Probleme entsprechend erfasst ist die sog. Komplexitätsklasse \emph{Polynomialzeithierarchie}, die die Probleme zwischen NP und PSPACE beschreibt. 
 
 \section{Forschungsfragen}
-Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus \cite[S. 33-39]{Brambilla.2012}. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor.  
-\begin{figure}
-	\centering
-		\includegraphics[width=0.7\textwidth]{Bilder/emendo.png}
-	\caption{Beispiel 1 zum Einfügen einer Grafik}
-	\label{fig:bsp1}
-\end{figure}
-
-In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas \cite{LohrRichter.1993}. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. 
+Die Polynomialzeithierarchie ist ein Forschungsgegenstand der Komplexitätstheorie, der bisweilen über einige offene Fragen verfügt. 
+So ist nicht bekannt, ob diese Hierarchie über endlich viele Stufen verfügt, oder es unendlich viele Abstufungen innerhalb dieser Hierarchie gibt.
+Auch ist nicht klar, ob die Hierarchie über echte Teilmengen definiert ist, was im gegenteiligen Fall auch eine endliche Anzahl von Abstufungen impliziert.
+Im Kern besteht die Frage, ob Verallgemeinerungen des Nichtdeterminismus tatsächlich eine erhöhte Mächtigkeit im Kontext der Berechenbarkeit mit sich bringen, oder dies nur scheinbar der Fall ist.
 
 \section{Ziel der Arbeit}
-
-Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus \cite{Lammel.2012}. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo \cite{Kelly.2008}. In ac felis quis tortor malesuada pretium. 
-
-\begin{table} [ht]
-\centering
-	\begin{tabular}{rcccrr}
-		\toprule
-		\multicolumn{1}{l}{Anzahl}&
-		\multicolumn{2}{c}{rel. Fehler (\%)}&&
-		\multicolumn{2}{c}{abs. Fehler}\\
-		\cmidrule{2-3}
-		\cmidrule{5-6}
-		& mittl. & max. && mittl. & max. \\
-		\midrule
-		$<$ 1000      & 3,8 & 5,2 && 38 & 52\\
-		1000 -- 5000  & 4,2 & 7,9 && 840 & 1580\\
-		5000 -- 10000 & 2,7 & 3,5 && 433 & 1350\\
-		$>$ 10000     & 0,9 & 1,2 && 11 & 321\\
-		\bottomrule
-	\end{tabular}
-	\caption[Hier steht die TabellenCaption]{Fehlerhäufigkeiten in Abhängigkeit zur Anzahl - Tabellenbeispiel}
-	\label{tab:Auswertungskategorien}
-\end{table}
-
-Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas (siehe \ref{tab:Auswertungskategorien}). Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique.
+Die Arbeit hat das Ziel einen Überblick über den aktuellen Forschungsstand über die Polynomialzeithierarchie zu erbringen. Dabei werden Kenntnisse über Konzepte wie der Nichtdeterminismus, sowie grundlegende Begriffe der Komplexitätstheorie
+wie die Komplexitätsklassen P, NP, und coNP, aber auch die platzbasierte Komplexitätsklasse PSPACE vorausgesetzt, sodass die Ausführungen dieser Arbeit auf diesen Wissensstand aufbauen können.
+Es werden die Vermutungen über die Eigenschaften der Polynomialzeithierarchie näher beleuchtet und erläutert, wieso die in der Forschung dominierenden Vermutungen plausibler erscheinen, als die Gegenannahme.
 
 \section{Struktur der Arbeit}
-
-Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor.
+Zunächst wird das Konzept der Alternierung eingeführt, anhand einer Analogie veranschaulicht, und auf Turingmaschinen angewendet. In diesem Zuge werden alternierende Komplexitätsklassen definiert, und der Zusammenhang 
+zwischen der Klasse AP und PSPACE dargestellt. Anschließend wird auf Grundlage dieses Wissens die Polynomialzeithierarchie formal eingeführt, sowie über die verschiedenen Definitionsmöglichkeiten definiert.
+Es werden dabei die Gemeinsamkeiten und Unterschiede der Definitionen genannt, sowie erläutert, aus welchem Grund diese Definitionen äquivalent sind.
+Zum Abschluss wird auf die Eigenschaften der Polynomialzeithierarchie eingegangen, sowie die Vermutungen der Forschung aufgezeigt. 
+Es werden die Konsequenzen der gegenteiligen Aussagen bezüglich den Vermutungen skizziert und erklärt, warum dies nicht überzeugend erscheint.
+Ein Fazit fasst alle Erkenntnisse aus den bisherigen Abschnitten zusammen und schließt die Arbeit mit einem Ausblick bezüglich weiterer möglicher Forschungsergebnisse ab.
 
 \input{./Bestandteile/Kapitel/einordnung}
 \input{./Bestandteile/Kapitel/alternierende_maschinen}

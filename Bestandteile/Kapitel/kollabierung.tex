@@ -28,18 +28,18 @@ Forschungsfrage dar. Eine weitere Vermutung ist, dass es zwar vollständige Prob
 Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine für eine Stufe $\Sigma^p_i = \Pi^p_i$ gilt:
 
 \begin{theorem}
-    Sei $\Sigma^p_i = \Pi^p_i$ für eine Stufe $i, i \geq 0$. Dann kollabiert die PH auf die Stufe $i$.
+    Sei $p$ ein Polynom und $\Sigma^p_i = \Pi^p_i$ für eine Stufe $i, i \geq 0$. Dann kollabiert die PH auf die Stufe $i$.
 \end{theorem}
 
 \begin{proof}[Beweis]
     Nach Voraussetzung gibt es eine Sprache $L$, sodass für jede Eingabe $x \in \{0,1\}^*$ eine Funktion mit 
     $$
-    x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^* \forall u_2 \in \{0,1\}^* ... Q_{i+1}u_{i + 1} \in \{0,1\}^* : M(x, u_1, ..., u_{i+1}) = 1
+    x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_{i+1}u_{i + 1} \in {0,1}^{p(|x|)} \in \{0,1\}^* : M(x, u_1, ..., u_{i+1}) = 1
     $$
     existiert.
     Nun wird eine weitere Sprache $L'$ wie folgt konstruiert:
     $$
-    \langle x, u_1 \rangle \in L' \Leftrightarrow \forall u_2 \in \{0,1\}^* \exists u_3 \in \{0,1\}^* ... Q_{i+1}u_{i + 1} \in \{0,1\}^* : M(x, u_1, ..., u_{i+1}) = 1
+    \langle x, u_1 \rangle \in L' \Leftrightarrow \forall u_2 \in \{0,1\}^{p(|x|)} \exists u_3 \in \{0,1\}^{p(|x|)} ... Q_{i+1}u_{i + 1} \in \{0,1\}^{p(|x|)} : M(x, u_2, ..., u_{i+1}) = 1
     $$
     Offensichtlich ist $L \in \Sigma^p_i$ und $L' \in \Pi^p_i$.
 \end{proof}
