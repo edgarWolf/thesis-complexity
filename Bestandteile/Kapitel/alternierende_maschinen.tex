@@ -44,26 +44,38 @@ Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden
 \section{Alternierende Komplexitätsklassen} \label{section: Komplexitätsklassen bei alternierenden TMs}
 Aus dieser hinzugekommenen Art der Turingmaschinenen ergeben sich entsprechende Komplexitätsklassen,
 um die Komplexität dieser Turingmaschinen formal beschreiben zu können:
-\begin{definition}[Alternierende Komplexitätsklassen]
+\begin{definition}[Alternierende Komplexitätsklassen] \cite{sipser_introduction_2012}
     % Check: Muss hier nicht O Notation?
-    $ATIME(f(n))$ ist die Menge Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine entschieden werden können. \\
-    $ASPACE(f(n))$ ist die Menge aller Sprachen, die von einer $f(n)$-platzbeschränkten alternierenden Turingmaschine entschieden werden können.
+    \\ATIME($f(n)$) ist die Menge Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine entschieden werden können. \\
+    ASPACE($f(n)$) ist die Menge aller Sprachen, die von einer $f(n)$-platzbeschränkten alternierenden Turingmaschine entschieden werden können.
 \end{definition}
 Anhand dieser allgemeinenen Definition der Komplexitätsklassen ergeben sich die konkreten Pendants zu den bisher bekannten Klassen:
-% TODO: Hier vllt über die Vereinugng der ATIME Klassen gehen, ist formal korrekter
-\begin{definition}[Die Klasse $AP$]
-    $$AP = \bigcup_{c \in \mathbb{N}} ATIME(n^c)$$
-    $AP$ ist die Menge aller Sprachen, die von einer polynomiell-zeitbeschränkten Turingmaschine entschieden werden können.
+
+\begin{definition}[Die Klasse AL]\cite{sipser_introduction_2012}
+    $$\text{AL} = \bigcup_{c \in \mathbb{N}} \text{ASPACE}(c \cdot log(n))$$
+    AL ist die Menge aller Sprachen, die von einer logarithmisch-platzbeschränkten alternierenden Turingmaschine entschieden werden können.
 \end{definition}
-Besonders für diese Klasse ergibt sich ein interessanter Zusammenhang zur platzbasierten Komplexitätsklasse $PSPACE$:
+
+\begin{definition}[Die Klasse AP]\cite{arora_computational_2009}
+    $$\text{AP} = \bigcup_{c \in \mathbb{N}} \text{ATIME}(n^c)$$
+    AP ist die Menge aller Sprachen, die von einer polynomiell-zeitbeschränkten alternierenden Turingmaschine entschieden werden können.
+\end{definition}
+
+\begin{definition}[Die Klasse APSPACE]\cite{sipser_introduction_2012}
+    $$\text{APSPACE} = \bigcup_{c \in \mathbb{N}} \text{ASPACE}(n^c)$$
+    APSPACE ist die Menge aller Sprachen, die von einer polynomiell-platzbeschränkten alternierenden Turingmaschine entschieden werden können. 
+\end{definition}
+
+Besonders für die Klasse AP ergibt sich ein interessanter Zusammenhang zur platzbasierten Komplexitätsklasse PSPACE:
+
 
 \begin{theorem}
-    $$AP = PSPACE$$
+    AP = PSPACE
 \end{theorem}
 
 \begin{proof}[Beweis]
-    Für den Beweis muss die Inklusion in beide Richtungen gezeigt werden, also $AP \subseteq PSPACE$ und $PSPACE \subseteq AP$. \\
-    Die erste Inklusion folgt aus dem $PSPACE$-vollständigen Problem $TQBF$, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
+    Für den Beweis muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
+    Die erste Inklusion folgt aus dem PSPACE-vollständigen Problem \texttt{TQBF}, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
     Eine alternierende Turingmaschine $M$ kann einfach jede Belegung einer mit $\exists$ versehenen Variable existenziell raten, analog jede Belegung einer mit $\forall$ 
     versehenen Variable universell.\\
     Für die zweite Inklusion konstruieren wir eine Turingmaschine $M'$, die die gleiche Sprache wie $M$ entscheidet.

@@ -1,6 +1,6 @@
 \chapter{Polynomialzeithierarchie (PH)} \label{chapter: Polynomialzeithierarchie (PH)}
 Die Polynomialzeithierarchie (kurz PH) bildet als Komplexitätsklasse Probleme ab, die sich nicht effizient mittels Nichtdeterminusmus lösen lassen, aber gleichzeitig 
-nicht $EXPTIME$ zuzuordnen sind. Die PH bietet einen Formalismus, um auch diese Probleme adäquat zu untersuchen und sie auf ihre Komplexität hin bewerten zu können.
+nicht EXPTIME zuzuordnen sind. Die PH bietet einen Formalismus, um auch diese Probleme adäquat zu untersuchen und sie auf ihre Komplexität hin bewerten zu können.
 Die PH verfügt dabei über verschiedene Definitionen, die aber allesamt äquivalent sind.
 % TODO: Hier wenn Zeit und Platz das mit EXACT-INDSET oder so einfügen
 
@@ -23,7 +23,7 @@ Aus diesen Definitionen kann sofort gefolgert werden dass $\Sigma^p_1 = NP$ und 
 den ersten Quanotren entspricht genau der Definition der entsprechenden Komplexitätsklassen $NP$ bzw. $coNP$.
 Die Polynomialzeithierarchie entspricht dann der Vereinigung über alle $\Sigma^p_i$, sowie der Vereinigung aller $\Pi^p_i$ \cite{sipser_introduction_2012}:
 \begin{align*}
-    PH = \bigcup_{i \geq 1} \Sigma^p_i = \bigcup_{i \geq 1} \Pi^p_i 
+    \text{PH} = \bigcup_{i \geq 1} \Sigma^p_i = \bigcup_{i \geq 1} \Pi^p_i 
 \end{align*}
 \section{Definition mit alternierenden Turingmaschinen} \label{section: Definition PH mit ATM}
 Eine äquivalente und mit der Definition über die alternierenden Quantoren verwandte Definition ist über alternierende Turingmaschinen möglich.
@@ -32,8 +32,8 @@ Sei dafür $M$ eine $f(n)$ zeitbeschränkte ATM und $i \geq 1$  mit $i - 1$ mit 
 oder die Sprache $\Pi_i TIME(f(n))$, falls der erste Zustand ein universeller ist \cite{arora_computational_2009}.
 Die Sprachen $\Sigma^p_i$ und $\Pi^p_i$ sind dann definiert als \cite{arora_computational_2009}:
 \begin{align*}
-    \Sigma^p_i = \bigcup_{c \in \mathbb{N}} \Sigma_i TIME(n^c) \\
-    \Pi^p_i = \bigcup_{c \in \mathbb{N}} \Pi_i TIME(n^c)
+    \Sigma^p_i = \bigcup_{c \in \mathbb{N}} \Sigma_i \text{TIME}(n^c) \\
+    \Pi^p_i = \bigcup_{c \in \mathbb{N}} \Pi_i \text{TIME}(n^c)
 \end{align*}
 $\Sigma^p_i$ beschreibt also die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit existenziellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
 $\Pi^p_i$ beschreibt analog die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit universellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
@@ -42,13 +42,13 @@ Eine weitere Definition erfolgt über Turingmaschinen mit Zugriff auf ein Orakel
 das ein vollständiges Problem einer Komplexitätsklasse entscheiden kann. Sei für die folgenden Ausführungen $A^B$, sodass eine $A$ eine Komplexitätsklasse ist, deren Sprachen durch eine Turingmaschine mit Zugriff auf ein Orakel, welches alle Probleme aus $B$ entscheiden kann, entscheidet. 
 Dann ist die Polynomialzeithierarchie induktiv, für $i \geq 0$ definiert als \cite{rothe_komplexitatstheorie_2008}:
 \begin{align*}
-    & \Delta^p_0 = \Sigma^p_0 = \Pi^p_0 = P \\
-    & \Delta^p_{i+1} = P^{\Sigma^p_i} \\
-    &\Sigma^p_{i+1} = NP^{\Sigma^p_i} \\
-    & \Pi^p_{i+1} = coNP^{\Sigma^p_i} \\
-    & PH = \bigcup_{k \geq 0} \Sigma^p_k
+    & \Delta^p_0 = \Sigma^p_0 = \Pi^p_0 = \text{P} \\
+    & \Delta^p_{i+1} = \text{P}^{\Sigma^p_i} \\
+    &\Sigma^p_{i+1} = \text{NP}^{\Sigma^p_i} \\
+    & \Pi^p_{i+1} = \text{coNP}^{\Sigma^p_i} \\
+    & \text{PH} = \bigcup_{k \geq 0} \Sigma^p_k
 \end{align*}
-Der Unterschied zu den anderen zwei Definitionen bestheht dabei über die Komplexitätsklassen $\Delta^p_i$, die die Komplexitätsklasse $P$
+Der Unterschied zu den anderen zwei Definitionen bestheht dabei über die Komplexitätsklassen $\Delta^p_i$, die die Komplexitätsklasse P
 mit Zugriff auf Orakel betrachtet. Jedoch spielt diese Komplexitätsklasse in der strukturellen Betrachtung der Polynomialzeithierarchie keine große
 Rolle und ist für die weiteren Ausführungen nicht von hoher Relevanz.
 % TODO:  Hier nochmal drauf eingehen, dass die Deltas hier neu sind, und das P nochmal explizit einbezogen wird.
