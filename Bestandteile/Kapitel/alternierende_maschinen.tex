@@ -73,11 +73,13 @@ Besonders für die Klasse AP ergibt sich ein interessanter Zusammenhang zur plat
     AP = PSPACE
 \end{theorem}
 
-\begin{proof}[Beweis]
-    Für den Beweis muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
+\begin{proof}[Beweisskizze] \cite{arora_computational_2009} \cite{sipser_introduction_2006}
+    Für die Beweisskizze muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
     Die erste Inklusion folgt aus dem PSPACE-vollständigen Problem \texttt{TQBF}, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
     Eine alternierende Turingmaschine $M$ kann einfach jede Belegung einer mit $\exists$ versehenen Variable existenziell raten, analog jede Belegung einer mit $\forall$ 
     versehenen Variable universell.\\
-    Für die zweite Inklusion konstruieren wir eine Turingmaschine $M'$, die die gleiche Sprache wie $M$ entscheidet.
-    % TODO: Beweis zu Ende führen und Zitate.
+    Das Argument dafür, dass AP $\subseteq$ PSPACE ist, kann auf ein Erreichbarkeitsproblem, ähnlich wie bei dem Satz von Savitch zurückgeführt werden:
+    Die Tiefe der Berechungspfade einer ATM sind polynomiell beschränkt, sodass die Erreichbarkeit von einer Konfiguration $c_1$ zu $c_2$ geprüft werden kann, indem eine Konfiguration existenziell $c_m$
+    zwischen $c_1$ und $c_2$ geraten wird. Dann wird universell geprüft, ob $c_1$ $c_m$ erreichen kann, sowie ob $c_m$ $c_2$ erreichen kann.
+    Durch diese rekursive Prüfung wird nur polynomiell viel Platz benötigt, um die Berechnung einer ATM zu simulieren. 
 \end{proof}

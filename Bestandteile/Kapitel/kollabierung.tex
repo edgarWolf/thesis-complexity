@@ -13,9 +13,9 @@ P, NP, coNP und PSPACE definiert \cite{arora_computational_2009}:
     $$
 \end{definition}
 
-Die Definition für $\Pi^p_i$-Vollständigkeit ergibt sich genau wie die für die $\Sigma^p_i$ analog.
+Die Definition für $\Pi^p_i$-Vollständigkeit ergibt sich genau wie die für $\Sigma^p_i$ analog.
 Für den Fall $i = 1$ entsprechen diese Definitionen genau der Definition der NP- bzw. coNP-Vollständigkeit.
-Eine ähnliche Überlegung kann für vollständige Probleme der gesamten PH gemacht werden, sodass sich folgende Definition daraus ergibt:
+Eine ähnliche Überlegung kann für vollständige Probleme der gesamten PH gemacht werden:
 
 \begin{definition}[PH-Vollständigkeit] \cite{arora_computational_2009}
     Eine Sprache $L$ ist PH-vollständig, genau dann wenn $L \in \text{PH}$ und wenn gilt 
@@ -40,7 +40,7 @@ Dafür werden folgende Probleme definiert:
 
 Analog erfolgt die Definition für $\Pi^p_i$-\texttt{SAT}. Die Abgrenzung zu \texttt{TQBF} erfolgt über die Limitierung der Alternierungen für die Quantoren.
 Diese Entscheidungsprobleme sind $\Sigma^p_i$- und $\Pi^p_i$-vollständig, jedes Problem aus $\Sigma^p_i$- bzw. $\Pi^p_i$ kann darauf reduziert werden.
-Schafer und Umans haben im Jahr 2008 einen Artikel verfasst, der vollständige Probleme ab der 2. Stufe auflistet und die Komplexität dieser kommentiert \cite{schaefer_completeness_nodate}.
+Schafer und Umans haben einen Artikel verfasst, der vollständige Probleme ab der 2. Stufe auflistet und die Komplexität dieser kommentiert \cite{schaefer_completeness_nodate}.
 
 
 \section{Kollabieren} \label{section: Kollabieren der PH}
@@ -73,7 +73,7 @@ Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine fü
 \end{theorem}
 
 \begin{proof}[Beweis]
-    Der Behauptung folgt direkt aus der Tatsache, dass $\Sigma^p_i = \Pi^p_i \Rightarrow \Sigma^p_{i+1} = \Pi^p_{i+1} = \Sigma^p_i$, es genügt also das zu zeigen.
+    Die Behauptung folgt direkt aus der Tatsache, dass $\Sigma^p_i = \Pi^p_i \Rightarrow \Sigma^p_{i+1} = \Pi^p_{i+1} = \Sigma^p_i$, es genügt also das zu zeigen.
     Nach Voraussetzung gilt für alle Sprachen $L$ in $\Sigma^p_{i+1}$, sodass für jede Eingabe $x \in \{0,1\}^*$ eine Funktion mit 
     $$
     x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_{i+1}u_{i + 1} \in \{0,1\}^{p(|x|)} : M(x, u_1, ..., u_{i+1}) = 1
@@ -103,4 +103,5 @@ Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine fü
 %TODO: Hier P = NP einbauen.%
 Sollte die PH kollabieren, so sind die Konzepte um die Berechnungskraft zu erhöhen in Wahrheit vergebens, denn die Probleme lassen sich in diesem bereits effizienter entscheiden.
 Im Extremfall würde das bedeuten P $=$ NP, sodass die gesamte Hierarchie sich auf die Klasse P beschränkt, und alle Probleme effizient deterministisch lösbar sind.
-Gerade der Fall P $=$ NP scheint so unplausibel, dass das Kollabieren der PH als unwahrscheinlich angesehen wird, und die Annahme fortbesteht, dass es sich bei den Inklusionen in der PH um echte Teilmengen handelt.
+Je kleiner das $i$ gewählt wird, sodass die Hierarchie kollabiert, umso weniger glaubwürdig erscheint diese Annahme.
+Gerade der Fall P $=$ NP scheint so unplausibel, dass die Annahme fortbesteht, dass es sich bei den Inklusionen in der PH um echte Teilmengen handelt.

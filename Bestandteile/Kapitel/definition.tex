@@ -13,12 +13,12 @@ sodass für jede Eingabe $x \in \{0,1\}^*$ gilt \cite{rossman_complexity_2015}:
 \begin{align*}
     x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_i u_i \in \{0,1\}^{p(|x|)} : M(x, u_1, ..., u_i) = 1
 \end{align*}
-wobei $Q_i = \exists$, wenn $i$ gerade ist, sonst $Q_i = \forall$. \\
+wobei $Q_i = \forall$, wenn $i$ gerade ist, sonst $Q_i = \exists$. \\
 Analog ist eine Sprache $L$ in $\Pi^p_i$, wenn es eine polynomiell zeitbeschränkte Turingmaschine $M$ gibt, sodass für jede Eingabe $x \in \{0,1\}^*$ gilt \cite{arora_computational_2009}:
 \begin{align*}
     x \in L \Leftrightarrow \forall u_1 \in \{0,1\}^{p(|x|)} \exists u_2 \in \{0,1\}^{p(|x|)} ... Q_i u_i \in \{0,1\}^{p(|x|)} : M(x, u_1, ..., u_i) = 1
 \end{align*}
-wobei $Q_i = \forall$, wenn $i$ gerade ist, sonst $Q_i = \exists$.
+wobei $Q_i = \exists$, wenn $i$ gerade ist, sonst $Q_i = \forall$.
 Aus diesen Definitionen kann sofort gefolgert werden dass $\Sigma^p_1 = NP$ und $\Sigma^p_1 = coNP$, denn die boolsche Formel reduziert auf 
 den ersten Quantoren entspricht genau der Definition der entsprechenden Komplexitätsklassen $NP$ bzw. $coNP$.
 Die Polynomialzeithierarchie entspricht dann der Vereinigung über alle $\Sigma^p_i$, sowie der Vereinigung aller $\Pi^p_i$ \cite{sipser_introduction_2012}:
@@ -30,7 +30,7 @@ Eine äquivalente und mit der Definition über die alternierenden Quantoren verw
 Das Konzept wurde bereits in \ref{section: alternierende Turingmaschine} erläutert und dient nun als Basis für die Definition der Polynomialzeithierarchie.
 Sei dafür $M$ eine $f(n)$ zeitbeschränkte ATM und $i \geq 1$  mit $i - 1$ mit  Alternierungen. Dann entscheidet M die Sprache $\Sigma_i TIME(f(n))$, wenn der initiale Zustand ein existenzieller ist,
 oder die Sprache $\Pi_i TIME(f(n))$, falls der erste Zustand ein universeller ist \cite{arora_computational_2009}.
-Die Sprachen $\Sigma^p_i$ und $\Pi^p_i$ sind dann definiert als \cite{arora_computational_2009}:
+Die Klassen $\Sigma^p_i$ und $\Pi^p_i$ sind dann definiert als \cite{arora_computational_2009}:
 \begin{align*}
     \Sigma^p_i = \bigcup_{c \in \mathbb{N}} \Sigma_i \text{TIME}(n^c) \\
     \Pi^p_i = \bigcup_{c \in \mathbb{N}} \Pi_i \text{TIME}(n^c)
