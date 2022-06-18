@@ -50,9 +50,12 @@ Dann ist die Polynomialzeithierarchie induktiv, für $i \geq 0$ definiert als \c
     & \Pi^p_{i+1} = \text{coNP}^{\Sigma^p_i} \\
     & \text{PH} = \bigcup_{k \geq 0} \Sigma^p_k
 \end{align*}
-Der Unterschied zu den anderen zwei Definitionen besteht dabei über die Komplexitätsklassen $\Delta^p_i$, die die Komplexitätsklasse P
-mit Zugriff auf Orakel betrachtet. Jedoch spielt diese Komplexitätsklasse in der strukturellen Betrachtung der Polynomialzeithierarchie keine große
-Rolle und ist für die weiteren Ausführungen von nebensächlicher Relevanz. \\
+Diese Definition beschreibt induktiv die erhöhte Berechnungskraft je Stufe der PH durch die Nutzung eines weiteren Orakels.
+Es folgt aus den obigen Definitionen, dass $\Delta^p_1 = \text{P}^\text{P} = \text{P}$.
+Ein weiterer Unterschied zu den anderen zwei Definitionen besteht über die Komplexitätsklassen $\Delta^p_i$, die die Komplexitätsklasse P
+mit Zugriff auf Orakel betrachtet. Außerdem wird noch eine weitere Stufe $0$ der Hierarchie betrachtet, bei der alle Klassen gleich P sind.
+Jedoch spielt die Klassen $\Delta^p_i$ in der strukturellen Betrachtung der Polynomialzeithierarchie keine große
+Rolle und sind für die weiteren Ausführungen von nebensächlicher Relevanz. \\
 
 \noindent Die obigen Definitionen sind äquivalent, was gezeigt werden kann, indem gezeigt wird dass $\Sigma^p_{i+1} = \text{NP}^{\Sigma^p_i \text{SAT}}$.
 Dafür wird zuerst gezeigt, dass $\Sigma^p_2 \subseteq \text{NP}^{\text{SAT}}$. Sei dafür $L \in \Sigma^p_2$. Dann gilt: 
