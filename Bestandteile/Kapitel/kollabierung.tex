@@ -1,5 +1,7 @@
 \chapter{Eigenschaften der PH} \label{chapter: Eigenschaften der PH}
-% TODO: Vllt umbennenn in "Eigenschaften der PH"
+Nachdem die Polynomialzeithierarchie im vorigen Abschnitt über drei verschiedene Definitionen eingeführt wurde, beschäftigt sich dieser Abschnitt mit 
+weiteren Eigenschaften der PH und den in der Forschung formulierten Vermutungen, sowie den Konsequenzen, falls sich diese Vermutungen als falsch herausstellen sollten.
+
 \section{Vollständige Mengen innerhalb der PH} \label{section: Vollständige Mengen innerhalb der PH}
 
 \section{Kollabieren der PH} \label{section: Kollabieren der PH}
@@ -38,11 +40,6 @@ Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine fü
     x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_{i+1}u_{i + 1} \in {0,1}^{p(|x|)} \in \{0,1\}^* : M(x, u_1, ..., u_{i+1}) = 1
     $$
     existiert.
-    %%Nun wird eine weitere Sprache $L'$ wie folgt konstruiert:
-    %%$$
-    %%\langle x, u_1 \rangle \in L' \Leftrightarrow \forall u_2 \in \{0,1\}^{p(|x|)} \exists u_3 \in \{0,1\}^{p(|x|)} ... Q_{i+1}u_{i + 1} \in \{0,1\}^{p(|x|)} : M(x, u_2, ..., u_{i+1}) = 1
-    %%$$
-    %%Offensichtlich ist $L \in \Sigma^p_i$ und $L' \in \Pi^p_i$.
     Dabei ist zu beachten, dass der Teil der Formel nach $\exists u_1$ eine Sprache $L' \in \Pi^p_i$ ist.
     Das heißt für die Sprache $L$:
     \begin{align*}

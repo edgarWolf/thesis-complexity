@@ -1,7 +1,7 @@
 \chapter{Einleitung}
-Die Komplexitätstheorie beschäftigt sich mit der \enquote{Schwierigkeit} von Problemen, im Sinne vom Platzverbrauch sowie Zeitverbrauch. Sie unterteilt dabei die Probleme in Komplexitätsklassen ein, 
-um so ihre Schwierigkeit miteineander vergleichen zu können. Ein entscheidendes Konzept ist dabei der Nichtdeterminismus, sodass Entscheidungsprobleme, für die kein deterministischer Polynomialzeit-Algorithmus bekannt ist,
-über diese Klasse abgebildet werden. Es wird vermutet dass P echt in der Klasse NP enthalten ist, und die Probleme aus NP sich tatsächlich nicht deterministisch effizient entscheiden lassen.
+Die Komplexitätstheorie beschäftigt sich mit der \enquote{Schwierigkeit} von Problemen, im Sinne vom Platzverbrauch sowie Zeitverbrauch. Sie unterteilt dabei die Probleme in \emph{Komplexitätsklassen} ein, 
+um so ihre Schwierigkeit miteineander vergleichen zu können. Ein entscheidendes Konzept ist dabei der \emph{Nichtdeterminismus}, sodass Entscheidungsprobleme, für die kein deterministischer Polynomialzeit-Algorithmus bekannt ist,
+über diese Klasse abgebildet werden. Es wird vermutet dass P echt in der Klasse NP enthalten ist, und für die Probleme aus NP tatsächlich keine deterministische Algorithmen in Polynomialzeit existieren, die diese Probleme entscheiden.
 Durch die Klasse coNP werden Probleme beschrieben, deren Komplement in NP liegen. Diese Probleme erscheinen nochmals schwieriger als die Probleme in NP, und auch hier stellt sich die Frage, ob coNP = NP.
 Es werden aber nicht alle natürlichen Probleme durch diese drei Klassen charakterisiert. Probleme, die sicht nicht ausschließlich nichtdeterministisch entscheiden lassen, werden mittels diesen Klassen nicht hinreichend charakterisiert.
 Ein Konzept, welches diese Probleme entsprechend erfasst ist die sog. Komplexitätsklasse \emph{Polynomialzeithierarchie}, die die Probleme zwischen NP und PSPACE beschreibt. 
@@ -18,14 +18,13 @@ wie die Komplexitätsklassen P, NP, und coNP, aber auch die platzbasierte Komple
 Es werden die Vermutungen über die Eigenschaften der Polynomialzeithierarchie näher beleuchtet und erläutert, wieso die in der Forschung dominierenden Vermutungen plausibler erscheinen, als die Gegenannahme.
 
 \section{Struktur der Arbeit}
-Zunächst wird das Konzept der Alternierung eingeführt, anhand einer Analogie veranschaulicht, und auf Turingmaschinen angewendet. In diesem Zuge werden alternierende Komplexitätsklassen definiert, und der Zusammenhang 
+Zunächst wird das Konzept der \emph{Alternierung} eingeführt, anhand einer Analogie veranschaulicht, und auf Turingmaschinen angewendet. In diesem Zuge werden alternierende Komplexitätsklassen definiert, und der Zusammenhang 
 zwischen der Klasse AP und PSPACE dargestellt. Anschließend wird auf Grundlage dieses Wissens die Polynomialzeithierarchie formal eingeführt, sowie über die verschiedenen Definitionsmöglichkeiten definiert.
 Es werden dabei die Gemeinsamkeiten und Unterschiede der Definitionen genannt, sowie erläutert, aus welchem Grund diese Definitionen äquivalent sind.
 Zum Abschluss wird auf die Eigenschaften der Polynomialzeithierarchie eingegangen, sowie die Vermutungen der Forschung aufgezeigt. 
 Es werden die Konsequenzen der gegenteiligen Aussagen bezüglich den Vermutungen skizziert und erklärt, warum dies nicht überzeugend erscheint.
 Ein Fazit fasst alle Erkenntnisse aus den bisherigen Abschnitten zusammen und schließt die Arbeit mit einem Ausblick bezüglich weiterer möglicher Forschungsergebnisse ab.
 
-\input{./Bestandteile/Kapitel/einordnung}
 \input{./Bestandteile/Kapitel/alternierende_maschinen}
 \input{./Bestandteile/Kapitel/definition}
 \input{./Bestandteile/Kapitel/kollabierung}
