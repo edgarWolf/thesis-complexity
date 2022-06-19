@@ -75,11 +75,13 @@ Besonders für die Klasse AP ergibt sich ein interessanter Zusammenhang zur plat
 
 \begin{proof}[Beweisskizze] \cite{arora_computational_2009} \cite{sipser_introduction_2006}
     Für die Beweisskizze muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
-    Die erste Inklusion folgt aus dem PSPACE-vollständigen Problem \texttt{TQBF}, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
+    Die Inklusion folgt PSPACE $\subseteq$ AP folgt aus dem PSPACE-vollständigen Problem \texttt{TQBF}, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
     Eine alternierende Turingmaschine $M$ kann einfach jede Belegung einer mit $\exists$ versehenen Variable existenziell raten, analog jede Belegung einer mit $\forall$ 
     versehenen Variable universell.\\
-    Das Argument dafür, dass AP $\subseteq$ PSPACE ist, kann auf ein Erreichbarkeitsproblem, ähnlich wie bei dem Satz von Savitch zurückgeführt werden:
-    Die Tiefe der Berechungspfade einer ATM sind polynomiell beschränkt, sodass die Erreichbarkeit von einer Konfiguration $c_1$ zu $c_2$ geprüft werden kann, indem eine Konfiguration existenziell $c_m$
-    zwischen $c_1$ und $c_2$ geraten wird. Dann wird universell geprüft, ob $c_1$ $c_m$ erreichen kann, sowie ob $c_m$ $c_2$ erreichen kann.
-    Durch diese rekursive Prüfung wird nur polynomiell viel Platz benötigt, um die Berechnung einer ATM zu simulieren. 
+    Die Inklusion AP $\subseteq$ PSPACE kann durch eine Simulation einer alternierenden polynomiell zeitbeschränkte Turingmaschine $M$ durch eine deterministische polynomiell platzbeschränkten Turingmaschine $M'$
+    gezeigt werden. Die Maschine $M'$ führt dabei eine Tiefensuche im Konfigurationsgraph von $M$ durch, und bestimmt dadurch die Knoten, die eine akzeptierende Berechnung repräsentieren.
+    Die Maschine speichert dabei den Berechnungspfad ab. Sie akzeptiert genau dann, wenn die Maschine einen solchen Pfad \enquote{rekonstruieren} kann, sodass der Startknoten des Graphen,
+    der der Startkonfiguration entspricht, akzeptiert.
+    Die Tiefe des Konfigurationsgraph ist durch Laufzeitbeschränkung der Maschine $M$ beschränkt, sie ist also polynomiell beschränkt, genau so wie eine Konfiguration, also ein Knoten in dem Berechnungsbaum,
+    lediglich polynomiellen Platzbedarf hat. Somit kann die Maschine $M'$ die Berechnung von $M$ deterministisch mit polynomiell beschränktem Platz simulieren. 
 \end{proof}
