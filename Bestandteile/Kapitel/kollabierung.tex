@@ -40,18 +40,18 @@ Dafür werden folgende Probleme definiert:
 
 Analog erfolgt die Definition für $\Pi^p_i$-\texttt{SAT}. Die Abgrenzung zu \texttt{TQBF} erfolgt über die Limitierung der Alternierungen für die Quantoren.
 Diese Entscheidungsprobleme sind $\Sigma^p_i$- und $\Pi^p_i$-vollständig, jedes Problem aus $\Sigma^p_i$- bzw. $\Pi^p_i$ kann darauf reduziert werden.
-Schafer und Umans haben einen Artikel verfasst, der vollständige Probleme ab der 2. Stufe auflistet und die Komplexität dieser kommentiert \cite{schaefer_completeness_nodate}.
+Schafer und Umans haben einen Artikel verfasst, der vollständige Probleme ab der zweiten Stufe auflistet und die Komplexität dieser kommentiert \cite{schaefer_completeness_nodate}.
 
 
 \section{Kollabieren} \label{section: Kollabieren der PH}
 Es wird vermutet, dass sich die Hierarchie über unendlich viele Stufen verfügt und eine Stufe $i$ in Stufe $i + 1$ echt enthalten ist,
-also dass $\Sigma^p_i \subset \Sigma^p_{i+1}$ und $\Pi^p_i \subset \Pi^p_{i+1}$ für $i \geq 1$. Diese Inklusion ist aber nicht bewiesen und stellt eine offene
+also dass $\Sigma^p_i \subset \Sigma^p_{i+1}$ und $\Pi^p_i \subset \Pi^p_{i+1}$ für $i \geq 1$ \cite{arora_computational_2009}. Diese Vermutung ist aber nicht bewiesen und stellt eine offene
 Forschungsfrage dar. Eine weitere Vermutung, bereits in \ref{section: Vollständige Mengen innerhalb der PH} artikuliert,  ist, dass es zwar vollständige Probleme je Stufe in der Polynomialzeithierarchie gibt, aber keine vollständige Mengen für die gesamte PH.
 \begin{theorem}
     Sei $L$ eine PH-vollständige Sprache. Dann kollabiert die PH auf eine endliche Anzahl von Stufen. 
 \end{theorem}
 
-\begin{proof}[Beweis]
+\begin{proof}[Beweis] \cite{arora_computational_2009}
     Da $L$ PH-vollständig ist, sind alle Sprachen aus PH auf diese Sprache $L$ reduzierbar:
     $$
     \forall L' \in PH: L' \leq_p L
@@ -72,8 +72,7 @@ Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine fü
     Sei $p$ ein Polynom und $\Sigma^p_i = \Pi^p_i$ für eine Stufe $i, i \geq 0$. Dann kollabiert die PH auf die Stufe $i$.
 \end{theorem}
 
-\begin{proof}[Beweis]
-    Die Behauptung folgt direkt aus der Tatsache, dass $\Sigma^p_i = \Pi^p_i \Rightarrow \Sigma^p_{i+1} = \Pi^p_{i+1} = \Sigma^p_i$, es genügt also das zu zeigen.
+\begin{proof}[Beweis] \cite{rothe_komplexitatstheorie_2008}
     Nach Voraussetzung gilt für alle Sprachen $L$ in $\Sigma^p_{i+1}$, sodass für jede Eingabe $x \in \{0,1\}^*$ eine Funktion mit 
     $$
     x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_{i+1}u_{i + 1} \in \{0,1\}^{p(|x|)} : M(x, u_1, ..., u_{i+1}) = 1
@@ -100,7 +99,6 @@ Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine fü
     \end{align*}
 \end{proof}
 
-%TODO: Hier P = NP einbauen.%
 Sollte die PH kollabieren, so sind die Konzepte um die Berechnungskraft zu erhöhen in Wahrheit vergebens, denn die Probleme lassen sich in diesem bereits effizienter entscheiden.
 Im Extremfall würde das bedeuten P $=$ NP, sodass die gesamte Hierarchie sich auf die Klasse P beschränkt, und alle Probleme effizient deterministisch lösbar sind.
 Je kleiner das $i$ gewählt wird, sodass die Hierarchie kollabiert, umso weniger glaubwürdig erscheint diese Annahme.

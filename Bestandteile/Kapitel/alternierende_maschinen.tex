@@ -16,14 +16,14 @@ Der Nichtdeterminismus kann als Spezialfall der Alternierung betrachtet werden, 
 
 \section{Alternierende Turingmaschinen} \label{section: alternierende Turingmaschine}
 Das Konzept der Alternierung lässt sich auf Turingmaschinen übetragen, wodurch sich folgende Definition ergibt:
-\begin{definition}[Alternierende Turingmaschine (ATM)]\cite{pass_lecture_nodate}
+\begin{definition}[Alternierende Turingmaschine (ATM)]\cite{sipser_introduction_2012}
     Eine alternierende Turingmaschine ATM ist eine nichtdeterministische Turingmaschine NDTM $M$, bei der jeder Zustand mit einem 
     Element aus der Menge \{$\forall$, $\exists$, \texttt{accept}, \texttt{halt}\} gekennzeichnet ist.
 \end{definition}
 
 Eine ATM kann dabei genau wie eine NDTM bei jedem Berechnungsschritt in mehrere Zustände übergehen, jedoch operiert diese nicht
 wie die NDTM zwangsläufig in einem existenziellen Modus, sodass sie akzeptiert, wenn es einen akzeptierenden Berechungspfad gibt, sondern entsprechend der Markierung des Zustandes.
-Der Name \enquote{alternierende Turingmaschine} kommt daher, dass die Turingmaschine zwischen dem Existenz- und Universalqunator alternieren kann.
+Der Name \enquote{alternierende Turingmaschine} kommt daher, dass die Turingmaschine zwischen dem Existenz- und Universalqunator alternieren kann \cite{chandra_alternation_1976}.
 Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden:
 \begin{definition}[Akzeptanz einer alternierenden Turingmaschine]\cite{arora_computational_2009}
     Sei $G_{M, x}$ der Konfigurationsgraph der ATM $M$ auf die Eingabe $x \in \{0,1\}*$, sodass eine Kante von einer Konfiguration $C$ zu 
@@ -73,8 +73,8 @@ Besonders für die Klasse AP ergibt sich ein interessanter Zusammenhang zur plat
     AP = PSPACE
 \end{theorem}
 
-\begin{proof}[Beweisskizze] \cite{arora_computational_2009} \cite{sipser_introduction_2006}
-    Für die Beweisskizze muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
+\begin{proof}[Beweis] \cite{arora_computational_2009} \cite{sipser_introduction_2012}
+    Für den Beweis muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
     Die Inklusion folgt PSPACE $\subseteq$ AP folgt aus dem PSPACE-vollständigen Problem \texttt{TQBF}, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
     Eine alternierende Turingmaschine $M$ kann einfach jede Belegung einer mit $\exists$ versehenen Variable existenziell raten, analog jede Belegung einer mit $\forall$ 
     versehenen Variable universell.\\

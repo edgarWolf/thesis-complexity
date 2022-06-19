@@ -1,10 +1,12 @@
 \chapter{Einleitung}
-Die Komplexitätstheorie beschäftigt sich mit der \enquote{Schwierigkeit} von Problemen, im Sinne vom Platzverbrauch sowie Zeitverbrauch. Sie unterteilt dabei die Probleme in \emph{Komplexitätsklassen} ein, 
-um so ihre Schwierigkeit miteineander vergleichen zu können. Ein entscheidendes Konzept ist dabei der \emph{Nichtdeterminismus}, sodass Entscheidungsprobleme, für die kein deterministischer Polynomialzeit-Algorithmus bekannt ist,
-über diese Klasse abgebildet werden. Es wird vermutet dass P echt in der Klasse NP enthalten ist, und für die Probleme aus NP tatsächlich keine deterministische Algorithmen in Polynomialzeit existieren, die diese Probleme entscheiden.
-Durch die Klasse coNP werden Probleme beschrieben, deren Komplement in NP liegen. Diese Probleme erscheinen nochmals schwieriger als die Probleme in NP, und auch hier stellt sich die Frage, ob coNP = NP.
+Eine der zentralen Fragen der Komplexitätstheorie ist, ob P $=$ NP gilt.  Es wird vermutet dass P echt in der Klasse NP enthalten ist, und für die Probleme aus NP tatsächlich keine deterministische Algorithmen in Polynomialzeit existieren, die diese Probleme entscheiden \cite{sipser_introduction_2012}.
+Das Gegenteil würde bedeuten, dass alle Probleme aus NP ebenfalls deterministisch in Polynomialzeit entschieden werden können, mit weitreichenden Auswirkungen für Berechnungen in unserer Welt \cite{arora_computational_2009}.
+Durch die Klasse coNP werden Probleme beschrieben, deren Komplement in NP liegen. Diese Probleme erscheinen nochmals schwieriger als die Probleme in NP, und auch hier stellt sich die Frage, ob coNP $=$ NP.
 Es werden aber nicht alle natürlichen Probleme durch diese drei Klassen charakterisiert. Probleme, die sicht nicht ausschließlich nichtdeterministisch entscheiden lassen, werden mittels diesen Klassen nicht hinreichend charakterisiert.
-Ein Konzept, welches diese Probleme entsprechend erfasst ist die sog. Komplexitätsklasse \emph{Polynomialzeithierarchie}, die die Probleme zwischen NP und PSPACE beschreibt. 
+Probleme wie z.B. das Problem \texttt{EXACT-INDSET}, bei der mit einer Eingabe eines Graphen $G$ und einer Zahl $k \in \mathbb{N}$ entschieden werden soll, ob das größte \texttt{INDSET} in $G$ genau die Größe $k$ hat,
+scheinen über kein \enquote{kurzes} Zertifikat zu verfügen \cite{arora_computational_2009}. Es scheint außerdem so, dass dieses Problem nicht allein nichtdeterministisch gelöst werden kann, als dass die Existenz eines \texttt{INDSET} entschieden werden muss, sowie für alle
+anderen \texttt{INDSET}-Instanzen geprüft werden muss, dass sie nicht größer $k$ sind \cite{arora_computational_2009}. 
+Ein Konzept, welches diese Probleme entsprechend erfasst ist die sog. \emph{Polynomialzeithierarchie}, die als Komplexitätsklasse die Probleme \enquote{zwischen} NP und PSPACE beschreibt \cite{arora_computational_2009}. 
 
 \section{Forschungsfragen}
 Die Polynomialzeithierarchie ist ein Forschungsgegenstand der Komplexitätstheorie, der bisweilen über einige offene Fragen verfügt. 
