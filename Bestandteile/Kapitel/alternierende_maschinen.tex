@@ -17,8 +17,8 @@ Der Nichtdeterminismus kann als Spezialfall der Alternierung betrachtet werden, 
 \section{Alternierende Turingmaschinen} \label{section: alternierende Turingmaschine}
 Das Konzept der Alternierung lässt sich auf Turingmaschinen übetragen, wodurch sich folgende Definition ergibt:
 \begin{definition}[Alternierende Turingmaschine (ATM)]\cite{sipser_introduction_2012}
-    Eine alternierende Turingmaschine ATM ist eine nichtdeterministische Turingmaschine NDTM $M$, bei der jeder Zustand mit einem 
-    Element aus der Menge \{$\forall$, $\exists$, \texttt{accept}, \texttt{halt}\} gekennzeichnet ist.
+    Eine alternierende Turingmaschine ATM ist eine nichtdeterministische Turingmaschine, bei der die Zustände mit Ausnahme der akzeptierenden oder ablehnenden Zustände,
+    in universelle und existenzielle Zustände unterteilt werden.
 \end{definition}
 
 Eine ATM kann dabei genau wie eine NDTM bei jedem Berechnungsschritt in mehrere Zustände übergehen, jedoch operiert diese nicht

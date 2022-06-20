@@ -1,3 +1,4 @@
+% TODO: Umbennnen in "Vollständigkeit" mit erstrem kapitel = Definition
 \chapter{Eigenschaften der PH} \label{chapter: Eigenschaften der PH}
 Nachdem die Polynomialzeithierarchie im vorigen Abschnitt über drei verschiedene Definitionen eingeführt wurde, beschäftigt sich dieser Abschnitt mit 
 weiteren Eigenschaften der PH und den in der Forschung formulierten Vermutungen, sowie den Konsequenzen, falls sich diese Vermutungen als falsch herausstellen sollten.
@@ -27,18 +28,28 @@ Eine ähnliche Überlegung kann für vollständige Probleme der gesamten PH gema
 Es wird allerdings vermutet, dass keine solchen vollständigen Mengen für die gesamte Hierarchie existent sind, und sich die Vollständigkeit auf Probleme innerhalb der
 Stufen der PH beschränken. Die Konsequenzen für das Gegenteil dieser Annahme werden in \ref{section: Kollabieren der PH} betrachtet, diese werden als unplausibel gewertet \cite{arora_computational_2009}.
 Generell gilt, dass jede Stufe der PH als vollständiges Problem eine spezielle Ausprägung des \texttt{TQBF}-Problems als vollständiges Problem besitzt.
-Dafür werden folgende Probleme definiert:
-
+Das \texttt{TQBF}-Problem sei dabei folgendermaßen definiert:
+\begin{definition}[\texttt{TQBF}] \cite{sipser_introduction_2012}
+    \textbf{Gegeben:} Eine quantifizierte boolsche Formel $\phi$ 
+    $$
+    Q_1 u_1 Q_2 u_2, ... \phi(u_1, u_2, ...)
+    $$ \\
+    wobei $Q_i \in \{\exists, \forall\}$
+    \textbf{Frage:} Ist $Q_1 u_1 Q_2 u_2, ... \phi(u_1, u_2, ...) = 1$?
+\end{definition}
+Das Problem ist als PSPACE-vollständig bekannt und stellt eine Verallgemeinerung des \texttt{SAT}-Problems dar \cite{arora_computational_2009}. \\
+Nun wird $\Sigma_i$-\texttt{SAT} definiert:
 \begin{definition}[$\Sigma_i$-\texttt{SAT}] \cite{arora_computational_2009}
     \textbf{Gegeben:} Eine quantifizierte boolsche Formel $\phi$ mit $i-1$ Alternierungen der Quantoren $Q_i$ 
     $$
     \exists u_1 \forall u_2, ..., Q_i u_i \phi(u_1, u_2, ..., u_i)
     $$
-    wobei $Q_i = \exists $ falls $i$ ungerade ist, $Q_i = \forall$ sonst. \\
+    wobei $Q_i = \exists $ falls $i$ ungerade ist, $Q_i = \forall$ sonst \\
     \textbf{Frage:} Ist $\exists u_1 \forall u_2, ..., Q_i u_i \phi(u_1, u_2, ..., u_i) = 1$ ?
 \end{definition}
 
-Analog erfolgt die Definition für $\Pi^p_i$-\texttt{SAT}. Die Abgrenzung zu \texttt{TQBF} erfolgt über die Limitierung der Alternierungen für die Quantoren.
+Analog erfolgt die Definition für $\Pi^p_i$-\texttt{SAT}. Die Abgrenzung zu \texttt{TQBF} erfolgt über die Limitierung der Alternierungen für die Quantoren auf eine feste Anzahl $i$, während 
+die Anzahl der Alternierungen in \texttt{TQBF} variabel sind.
 Diese Entscheidungsprobleme sind $\Sigma^p_i$- und $\Pi^p_i$-vollständig, jedes Problem aus $\Sigma^p_i$- bzw. $\Pi^p_i$ kann darauf reduziert werden.
 Schafer und Umans haben einen Artikel verfasst, der vollständige Probleme ab der zweiten Stufe auflistet und die Komplexität dieser kommentiert \cite{schaefer_completeness_nodate}.
 
@@ -93,11 +104,9 @@ Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine fü
     & \Leftrightarrow \exists u_1 (\exists v_1, \forall v_2, ..., Q_i v_i :  M'(\langle x, u_1 \rangle, v_1, ..., v_i) = 1) \\
     & \Leftrightarrow \exists \langle u_1, v_1 \rangle \forall v_2, ..., Q_i v_i : M'(\langle x, u_1 \rangle, v_1, ..., v_i) = 1
     \end{align*}
-    Somit ist $L \in \Sigma^p_i$. Da $\Sigma^p_i = \Pi^p_i$ und $\Sigma^p_i = co\Pi^p_i$ und $\Pi^p_i = co\Sigma^p_i$ muss also gelten:
-    \begin{align*}
-    \Pi^p_{i+1} = co\Pi^p_{i+1} = co\Sigma^p_i = \Pi^p_i = \Sigma^p_i
-    \end{align*}
+    Somit ist $L \in \Sigma^p_i$, aber zu Beginn des Beweises wurde $L$ beliebig aus $\Sigma^p_{i+1}$ gewählt, sodass nun $\Sigma^p_i = \Sigma^p_{i+1}$ gezeigt ist.
 \end{proof}
+
 
 Sollte die PH kollabieren, so sind die Konzepte um die Berechnungskraft zu erhöhen in Wahrheit vergebens, denn die Probleme lassen sich in diesem bereits effizienter entscheiden.
 Im Extremfall würde das bedeuten P $=$ NP, sodass die gesamte Hierarchie sich auf die Klasse P beschränkt, und alle Probleme effizient deterministisch lösbar sind.
