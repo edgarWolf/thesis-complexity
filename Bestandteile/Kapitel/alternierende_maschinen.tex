@@ -73,11 +73,14 @@ Besonders für die Klasse AP ergibt sich ein interessanter Zusammenhang zur plat
     AP = PSPACE
 \end{theorem}
 
-\begin{proof}[Beweis] \cite{arora_computational_2009} \cite{sipser_introduction_2012}
+\begin{proof}[Beweis] \cite{sipser_introduction_2012}
     Für den Beweis muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
-    Die Inklusion folgt PSPACE $\subseteq$ AP folgt aus dem PSPACE-vollständigen Problem \texttt{TQBF}, bei dem eine mit Quantoren versehene logische Formel auf Erfüllbarkeit geprüft wird.
-    Eine alternierende Turingmaschine $M$ kann einfach jede Belegung einer mit $\exists$ versehenen Variable existenziell raten, analog jede Belegung einer mit $\forall$ 
-    versehenen Variable universell.\\
+    Die Inklusion PSPACE $\subseteq$ AP wird durch Simulation einer polynomiell zeitbeschränkten deterministischen Turingmaschine $S$ durch alternierende polynomiell zeitbeschränkte Turingmaschine $S'$ gezeigt.
+    Dabei wird eine angepasste Variante des Satz des von Savitch angewendet. Es wird also geprüft, ob im Konfigurationsgraph von $M$ eine Verbidnung einer Konfiguration $c_1$ zu $c_2$ in $k$, $k \in \mathbb{N}$ Schritten möglich ist.
+    Dazu wird existenziell eine Konfiguration $c_m$ zwischen $c_1$ und $c_2$ geraten, um dann anschließend zu raten, 
+    ob $c_1$ $c_m$ in $k/2$ Schritten erreichen kann, und ob $c_m$ $c_2$ in $k/2$ Schritten erreichten kann. Diese Prozedur wird rekurisv aufgerufen,
+    um so die Erreichbarkeit von zwei Konfigurationen zu prüfen. Die Länge eines solchen Pfades innerhalb einer Rekurision ist dabei polynomiell beschränkt, genau wie die Länge der Konfiguration $c_m$.
+    Somit kann eine alternierende Turingmaschine $M'$ die Berechnung einer deterministischen polynomiell zeitbeschränkte Turingmaschine $M$ simulieren.  
     Die Inklusion AP $\subseteq$ PSPACE kann durch eine Simulation einer alternierenden polynomiell zeitbeschränkte Turingmaschine $M$ durch eine deterministische polynomiell platzbeschränkten Turingmaschine $M'$
     gezeigt werden. Die Maschine $M'$ führt dabei eine Tiefensuche im Konfigurationsgraph von $M$ durch, und bestimmt dadurch die Knoten, die eine akzeptierende Berechnung repräsentieren.
     Die Maschine speichert dabei den Berechnungspfad ab. Sie akzeptiert genau dann, wenn die Maschine einen solchen Pfad \enquote{rekonstruieren} kann, sodass der Startknoten des Graphen,
