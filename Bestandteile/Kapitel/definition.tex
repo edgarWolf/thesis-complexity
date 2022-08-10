@@ -1,70 +1,85 @@
 \chapter{Polynomialzeithierarchie (PH)} \label{chapter: Polynomialzeithierarchie (PH)}
-Die Polynomialzeithierarchie (kurz PH) bildet eine Verallgemeinerung der Klassen P, NP, und coNP an, also den Klassen, die einer 
-polynomiellen Zeitbeschränkung unterliegen \cite{aaronson_scott_2016}. Die PH bietet einen Formalismus, um auch diese Probleme adäquat zu untersuchen und sie auf ihre Komplexität hin bewerten zu können.
-Die PH verfügt dabei über verschiedene Definitionen, die aber allesamt äquivalent sind.
-% TODO: Hier wenn Zeit und Platz das mit EXACT-INDSET oder so einfügen
+Die Polynomialzeithierarchie (kurz PH) bildet eine Verallgemeinerung der Klassen P, NP, und coNP ab, also den Klassen, die einer 
+polynomiellen Zeitbeschränkung unterliegen \cite{aaronson_scott_2016}. Die PH bietet einen Formalismus, um auch diese Probleme adäquat untersuchen und sie auf ihre Komplexität hin bewerten zu können. Die PH verfügt dabei über verschiedene Definitionen, die aber allesamt äquivalent sind.
+
 
 
 \section{Definition mit alternierenden Quantoren} \label{section: Definition PH mit alternierenden Quantoren}
-Eine Möglichkeit der Definition besteht übr die der alternierenden Quantoren. Es wird dabei zwischen zwei Sprachdefinitionen unterschieden.
-Sei dafür $p$ ein Polynom und $i \geq 1$. Dann ist eine Sprache $L$ in $\Sigma^p_i$, wenn es polynomiell zeitbeschränkte Turingmaschine $M$ gibt, 
+Eine Möglichkeit der Definition besteht über die der alternierenden Quantoren. Es wird dabei zwischen zwei Sprachdefinitionen unterschieden.
+Sei dafür $p$ ein Polynom und $i \geq 1$. Dann ist eine Sprache $L$ in $\Sigma^p_i$, wenn es eine polynomiell zeitbeschränkte Turingmaschine $M$ gibt, 
 sodass für jede Eingabe $x \in \{0,1\}^*$ gilt \cite{rossman_complexity_2015}:
-%todo: Die Erklärung der Quantifizierer und wann welcher Qunator hergenommen wir hinzufügen.%
-\begin{align*}
+
+\begin{equation}
     x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_i u_i \in \{0,1\}^{p(|x|)} : M(x, u_1, ..., u_i) = 1
-\end{align*}
+\end{equation}
 wobei $Q_i = \forall$, wenn $i$ gerade ist, sonst $Q_i = \exists$. \\
 Analog ist eine Sprache $L$ in $\Pi^p_i$, wenn es eine polynomiell zeitbeschränkte Turingmaschine $M$ gibt, sodass für jede Eingabe $x \in \{0,1\}^*$ gilt \cite{arora_computational_2009}:
-\begin{align*}
+\begin{equation}
     x \in L \Leftrightarrow \forall u_1 \in \{0,1\}^{p(|x|)} \exists u_2 \in \{0,1\}^{p(|x|)} ... Q_i u_i \in \{0,1\}^{p(|x|)} : M(x, u_1, ..., u_i) = 1
-\end{align*}
-wobei $Q_i = \exists$, wenn $i$ gerade ist, sonst $Q_i = \forall$.
-Aus diesen Definitionen kann unmittelbar gefolgert werden dass $\Sigma^p_1 = NP$ und $\Pi^p_1 = coNP$, denn die boolsche Formel reduziert auf 
-den ersten Quantoren entspricht genau der Definition der entsprechenden Komplexitätsklassen $NP$ bzw. $coNP$.
-Allgemein ist sogar $\Pi^p_{i+1} = \text{co}\Sigma^p_{i+1}$, was einem Wechsel der Quantoren entspricht.
-Die Polynomialzeithierarchie entspricht dann der Vereinigung über alle $\Sigma^p_i$, sowie der Vereinigung aller $\Pi^p_i$ \cite{sipser_introduction_2012}:
-\begin{align*}
+\end{equation}
+wobei $Q_i = \exists$, wenn $i$ gerade ist, sonst $Q_i = \forall$. \\
+Aus diesen Definitionen kann unmittelbar gefolgert werden, dass $\Sigma^p_1 = \text{NP}$ und $\Pi^p_1 = \text{coNP}$, denn die boolsche Formel reduziert auf 
+den ersten Quantor entspricht genau der Definition der entsprechenden Komplexitätsklassen NP bzw. coNP.
+Allgemein gilt $\Pi^p_i = \text{co}\Sigma^p_i$, was einem Wechsel der Quantoren entspricht.
+Die Polynomialzeithierarchie entspricht dann der Vereinigung aller $\Sigma^p_i$, sowie der Vereinigung aller $\Pi^p_i$ \cite{sipser_introduction_2012}:
+\begin{equation}
     \text{PH} = \bigcup_{i \geq 1} \Sigma^p_i = \bigcup_{i \geq 1} \Pi^p_i 
-\end{align*}
+\end{equation}
 \section{Definition mit alternierenden Turingmaschinen} \label{section: Definition PH mit ATM}
 Eine äquivalente und mit der Definition über die alternierenden Quantoren verwandte Definition ist über alternierende Turingmaschinen möglich.
-Das Konzept wurde bereits in \ref{section: alternierende Turingmaschine} erläutert und dient nun als Basis für die Definition der Polynomialzeithierarchie.
-Sei dafür $M$ eine $f(n)$ zeitbeschränkte ATM und $i \geq 1$  mit $i - 1$ mit  Alternierungen. Dann entscheidet M die Sprache $\Sigma_i TIME(f(n))$, wenn der initiale Zustand ein existenzieller ist,
-oder die Sprache $\Pi_i TIME(f(n))$, falls der erste Zustand ein universeller ist \cite{arora_computational_2009}.
+Das Konzept wurde bereits in Abschnitt \ref{section: alternierende Turingmaschine} erläutert und dient nun als Basis für die Definition der Polynomialzeithierarchie.
+Sei dafür $M$ eine $f(n)$-zeitbeschränkte ATM  mit $i - 1$ Alternierungen für ein $i \geq 1$. Dann entscheidet $M$ Sprachen der Klasse $\Sigma_i TIME(f(n))$, wenn der initiale Zustand ein existenzieller ist,
+bzw. Sprachen der Klasse $\Pi_i TIME(f(n))$, falls der erste Zustand ein universeller ist \cite{arora_computational_2009}.
 Die Klassen $\Sigma^p_i$ und $\Pi^p_i$ sind dann definiert als \cite{arora_computational_2009}:
-\begin{align*}
+\begin{align}
     \Sigma^p_i = \bigcup_{c \in \mathbb{N}} \Sigma_i \text{TIME}(n^c) \\
     \Pi^p_i = \bigcup_{c \in \mathbb{N}} \Pi_i \text{TIME}(n^c)
-\end{align*}
+\end{align}
 $\Sigma^p_i$ beschreibt also die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit existenziellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
 $\Pi^p_i$ beschreibt analog die Menge der Sprachen, die von einer polynomiell zeitbeschränkten ATM $M$ mit universellem Startzustand und höchstens $i-1$ Alternierungen entschieden werden.
-Die PH selbst ist wie in \ref{section: Definition PH mit alternierenden Quantoren} definiert als die Vereinigung aller $\Sigma^p_i$ und $\Pi^p_i$.
+Aus diesen Definitionen folgt direkt, dass eine $\Sigma^p_1$-Maschine eine nichtdeterministische Turingmaschine ist.
+Die PH selbst ist wie in Abschnitt \ref{section: Definition PH mit alternierenden Quantoren} als die Vereinigung aller $\Sigma^p_i$ und $\Pi^p_i$ definiert \cite{sipser_introduction_2012}.
 
 \section{Definition mit Orakel-Turingmaschinen} \label{section: Definition PH mit Orakel-Turingmaschinen}
-Eine weitere Definition erfolgt über Turingmaschinen mit Zugriff auf ein Orakel. Dabei wird auf ein Orakel zugegriffen,
-das ein vollständiges Problem einer Komplexitätsklasse entscheiden kann. Sei für die folgenden Ausführungen $\text{A}^\text{B}$, sodass eine A eine Komplexitätsklasse ist, deren Sprachen durch eine Turingmaschine mit Zugriff auf ein Orakel, welches alle Probleme aus B entscheiden kann, entscheidet. 
-Dann ist die Polynomialzeithierarchie induktiv, für $i \geq 0$ definiert als \cite{rothe_komplexitatstheorie_2008}:
-\begin{align*}
+Eine weitere Definition erfolgt über Turingmaschinen mit Zugriff auf ein Orakel. Dabei wird auf ein Orakel zugegriffen, das ein vollständiges Problem einer Komplexitätsklasse entscheiden kann. 
+Dann ist die Polynomialzeithierarchie induktiv für $i \geq 0$ definiert als: \cite{rothe_komplexitatstheorie_2008}:
+\begin{align}
     & \Delta^p_0 = \Sigma^p_0 = \Pi^p_0 = \text{P} \\
     & \Delta^p_{i+1} = \text{P}^{\Sigma^p_i} \\
     &\Sigma^p_{i+1} = \text{NP}^{\Sigma^p_i} \\
     & \Pi^p_{i+1} = \text{coNP}^{\Sigma^p_i}, \Pi^p_{i+1} = \text{co}\Sigma^p_{i+1} \\
-    & \text{PH} = \bigcup_{k \geq 0} \Sigma^p_k
-\end{align*}
+    & \text{PH} = \bigcup_{i \geq 0} \Sigma^p_i
+\end{align}
 Diese Definition beschreibt induktiv die erhöhte Berechnungskraft je Stufe der PH durch die Nutzung eines weiteren Orakels.
-Es folgt aus den obigen Definitionen, dass $\Delta^p_1 = \text{P}^\text{P} = \text{P}$.
+Es folgt aus den obigen Definitionen, dass 
+\begin{align}
+    & \Delta^p_1 = \text{P}^\text{P} = \text{P} \\
+    & \Sigma^p_1 = \text{NP}^\text{P} = \text{NP} \\
+    & \Pi^p_1 = \text{coNP}^\text{P} = \text{coNP} \\
+\end{align}
+
 Ein weiterer Unterschied zu den anderen zwei Definitionen besteht über die Komplexitätsklassen $\Delta^p_i$, die die Komplexitätsklasse P
 mit Zugriff auf Orakel betrachtet. Außerdem wird noch eine weitere Stufe $0$ der Hierarchie betrachtet, bei der alle Klassen gleich P sind.
-Jedoch spielt die Klassen $\Delta^p_i$ in der strukturellen Betrachtung der Polynomialzeithierarchie keine große
-Rolle und sind für die weiteren Ausführungen von nebensächlicher Relevanz. \\
+Jedoch spielen die Klassen $\Delta^p_i$ in der strukturellen Betrachtung der Polynomialzeithierarchie eine nebensächliche Rolle, was auch daran erkennbar ist, dass sie in den zwei vorgegangen Definitionen keine Erwähnung finden. Daher sind diese Klassen in den weiterführenden Betrachtungen 
+nur von nebensächlicher Relevanz. \\
 
-\noindent Die obigen Definitionen sind äquivalent, was gezeigt werden kann, indem gezeigt wird dass $\Sigma^p_{i+1} = \text{NP}^{\Sigma^p_i \text{SAT}}$.
-Dafür wird zuerst gezeigt, dass $\Sigma^p_2 \subseteq \text{NP}^{\text{SAT}}$. Sei dafür $L \in \Sigma^p_2$. Dann gilt: 
-\begin{align*}
-    x \in L \Leftrightarrow \exists u_1 \forall u_2 : M(x, u_1, u_2) = 1
-\end{align*}
-Dann kann $u_1$ nichtdeterministisch geraten werden, um dann das Orakel, welches SAT entscheiden kann, zu fragen, ob es ein $u_2$ gibt, sodass das Orakel die Eingabe nicht akzeptiert.
-$M$ akzeptiert genau dann, wenn das Orakel nicht akzeptiert. \\
-Nun wird gezeigt, dass $\text{NP}^{\text{SAT}} \subseteq \Sigma^p_2 $. Dann kann $L$ entschieden werden, indem es nichtdeterministisch Entscheidungen $y$ gibt, 
-sowie Orakel-Anfragen $q_1, ..., q_k$ und Orakel-Antworten $a_1, ..., a_k$ sodass $M$ $x$ in polynomieller Zeit akzeptiert. Zusätzlich muss sichergestellt sein, 
-dass die Antworten $a_i$ korrekte Antworten bezüglich der Anfragen $q_i$ sind, also dass $a_i = 1$ genau dann wenn  $q_i \in \text{SAT}$.
+\section{Verhältnis zu PSPACE}
+Die PH ist in PSPACE enthalten, was induktiv gezeigt werden kann \cite{rothe_komplexitatstheorie_2008}.
+\begin{proof}[Beweis] \cite[S.320]{rothe_komplexitatstheorie_2008}
+Für den Fall $i = 0$ gilt: 
+    \begin{equation}
+        \Sigma^p_0 = P \subseteq PSPACE
+    \end{equation}
+    Nun gilt nach Induktionsannahme, dass für ein $i \geq 0$ gilt:
+    \begin{equation}
+        \Sigma^p_i \subseteq PSPACE
+    \end{equation}
+    Daraus folgt:
+    \begin{equation}
+        \Sigma^p_{i+1} = NP^{\Sigma^p_i} \subseteq NP^{PSPACE} \subseteq PSPACE
+    \end{equation}
+\end{proof}
+Allerdings ist es noch eine offene Frage, ob die PH echt in PSPACE enthalten ist, oder ob PH $=$ PSPACE \cite{rothe_komplexitatstheorie_2008} gilt.
+Auf diesen Aspekt wird in Kapitel \ref{chapter: Eigenschaften der PH} näher eingegangen.
+
+

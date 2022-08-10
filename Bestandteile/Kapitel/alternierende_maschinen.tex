@@ -1,32 +1,31 @@
 \chapter{Alternierung} \label{chapter: Alternierung}
 
 \section{Begriffsklärung} \label{section: Begriffsklärung}
-Die Alternierung in der Komplexitätstheorie meint eine Verallgemeinerung des Nichtdeterminusmus. Mittels dieser Verallgemeinerung 
-können diverse Beweise simplifiziert werden, und Verbindungen zu anderen Komplexitätsklassen gezogen werden \cite{sipser_introduction_2012} \cite{chandra_alternation_1976}. Ein Algorithmus, der auf Alternierung basiert,
+Die Alternierung in der Komplexitätstheorie meint eine Verallgemeinerung des Nichtdeterminismus. Mittels dieser Verallgemeinerung 
+können diverse Beweise vereinfacht werden, und Verbindungen zu anderen Komplexitätsklassen gezogen werden \cite{sipser_introduction_2012} \cite{chandra_alternation_1976}. Ein Algorithmus, der auf Alternierung basiert,
 kann wie ein gewöhnlicher nichtdeterministischer Algorithmus bei jedem Berechnungsschritt in mehrere Zustände überführt werden. Der Unterschied liegt hier bei dem Modus der Akzeptanz:
-Während ein nichtdeterministischer Algorithmus akzeptiert, wenn mindestens ein Berechnugspfad akzeptiert, so tritt bei einem alternierenden Algorithmus eine Fallunterscheidung ein.
-Die aktuelle Berechnug innerhalb des Algorithmus akzeptiert dann entweder, wenn wie beim Nichtdeterminusmus, mindestens ein Berechnugspfad akzeptiert, oder wenn alle Berechnugspfade akzeptieren.
+Während ein nichtdeterministischer Algorithmus akzeptiert, wenn mindestens ein Berechnungspfad akzeptiert, so tritt bei einem alternierenden Algorithmus eine Fallunterscheidung ein.
+Die aktuelle Berechnung innerhalb des Algorithmus akzeptiert dann entweder, wenn wie beim Nichtdeterminismus mindestens ein Berechnungspfad akzeptiert, oder wenn alle Berechnungspfade akzeptieren.
 Entscheidend für den Modus der Akzeptanz der Berechnung ist die Kennzeichnung des Berechnungsschrittes, der die Information enthält, unter welchem Modus dieser akzeptiert \cite{sipser_introduction_2012}.
-Diese Kennzeichnung wird in der Literatur meist über die logischen Quantoren $\exists$ und $\forall$ vorgenommen, manche Autoren wie Sipser verwenden die Symbole $\land$ und $\lor$, für die Darstellung als logisches Und bzw. als logisches Oder.
-Im ersten Fall akzeptiert die Berechnung, wenn mindestens ein Kind-Berechnugspfad akzeptiert, analog akzeptiert ein universeller Zustand genau dannn, wenn alle Kind-Berechnugspfade akzeptieren.
+Diese Kennzeichnung wird in der Literatur meist über die logischen Quantoren $\exists$ und $\forall$ vorgenommen, manche Autoren, wie Sipser, verwenden die Symbole $\land$ und $\lor$ für die Darstellung als logisches Und bzw. als logisches Oder.
+Im ersten Fall akzeptiert die Berechnung, wenn mindestens ein Kind-Berechnungspfad akzeptiert, analog akzeptiert ein universeller Zustand genau dann, wenn alle Kind-Berechnungspfade akzeptieren.
 Eine Analogie hierfür könnte ein Prozess in einem Computer sein, der bei jedem Berechnungsschritt mehrere neue Prozesse erzeugt.
-Jeder dieser Prozesse enthält eine Information darüber, ob er eine existenzielle oder universelle Berechnug durchführt. Der erzeugende Prozess gibt nun selber $1$ zurück, wenn er sich in einem existenziellen Zustand befindet
+Jeder dieser Prozesse enthält eine Information darüber, ob er eine existenzielle oder universelle Berechnung durchführt. Der erzeugende Prozess gibt nun selbst $1$ zurück, wenn er sich in einem existenziellen Zustand befindet
 und mindestens ein Kind-Prozess mit $1$ antwortet, oder er sich in einem universellen Prozess befindet und alle Prozesse mit $1$ antworten \cite{sipser_introduction_2012}.
-Der Nichtdeterminismus kann als Spezialfall der Alternierung betrachtet werden, bei dem Berechungen ausschließlich existenziell durchgeführt werden \cite{chandra_alternation_1976}.
+Der Nichtdeterminismus kann als Spezialfall der Alternierung betrachtet werden, bei dem Berechnungen ausschließlich existenziell durchgeführt werden \cite{chandra_alternation_1976}.
 
-\section{Alternierende Turingmaschinen} \label{section: alternierende Turingmaschine}
-Das Konzept der Alternierung lässt sich auf Turingmaschinen übetragen, wodurch sich folgende Definition ergibt:
-\begin{definition}[Alternierende Turingmaschine (ATM)]\cite{sipser_introduction_2012}
-    Eine alternierende Turingmaschine ATM ist eine nichtdeterministische Turingmaschine, bei der die Zustände mit Ausnahme der akzeptierenden oder ablehnenden Zustände,
+\section{Alternierende Turingmaschinen} \label{section: alternierende Turingmaschine} \\
+Das Konzept der Alternierung lässt sich auf Turingmaschinen übertragen, wodurch sich folgende Definition ergibt:
+\begin{definition}[Alternierende Turingmaschine (ATM)]\cite[S.409]{sipser_introduction_2012} \\
+    Eine alternierende Turingmaschine ATM ist eine nichtdeterministische Turingmaschine, bei der die Zustände, mit Ausnahme der akzeptierenden oder ablehnenden Zustände,
     in universelle und existenzielle Zustände unterteilt werden.
 \end{definition}
 
-Eine ATM kann dabei genau wie eine NDTM bei jedem Berechnungsschritt in mehrere Zustände übergehen, jedoch operiert diese nicht
-wie die NDTM zwangsläufig in einem existenziellen Modus, sodass sie akzeptiert, wenn es einen akzeptierenden Berechungspfad gibt, sondern entsprechend der Markierung des Zustandes.
-Der Name \enquote{alternierende Turingmaschine} kommt daher, dass die Turingmaschine zwischen dem Existenz- und Universalqunator alternieren kann \cite{chandra_alternation_1976}.
-Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden:
-\begin{definition}[Akzeptanz einer alternierenden Turingmaschine]\cite{arora_computational_2009}
-    Sei $G_{M, x}$ der Konfigurationsgraph der ATM $M$ auf die Eingabe $x \in \{0,1\}*$, sodass eine Kante von einer Konfiguration $C$ zu 
+Ein weiterer Unterschied gegenüber einer nichtdeterministischen Turingmaschine ist, dass eine ATM nicht zwangsläufig in einem existenziellen Modus operiert, sondern entsprechend der Markierung des Zustandes.
+Der Name \enquote{alternierende Turingmaschine} kommt daher, dass die Turingmaschine zwischen dem Existenz- und Universalquantor alternieren kann \cite{chandra_alternation_1976}.
+Die Akzeptanz einer Eingabe einer ATM kann formal wie folgt definiert werden:
+\begin{definition}[Akzeptanz einer alternierenden Turingmaschine]\cite[S.99-100]{arora_computational_2009} \\
+    Sei $G_{M, x}$ der Konfigurationsgraph der ATM $M$ auf die Eingabe $x \in \{0,1\}^*$, sodass eine Kante von einer Konfiguration $C$ zu 
     einer Konfiguration $C'$ einen Übergang von $C$ zu $C'$ über die Transitionsfunktion von $M$ darstellt. Dann ist die Akzeptanz über folgenden
     Markierungsalgorithmus definiert:
 
@@ -39,31 +38,41 @@ Die Akzeptanz einer Eingabe bei einer ATM kann formal wie folgt definiert werden
         \item Wiederhole die obigen Schritte, bis keine weitere Markierung mehr möglich ist.
     \end{itemize}
 
-    Die ATM M akzeptiert genau dann, wenn am Ende dieses Algorithmus die Startkonfiguration $C_{start}$ mit \texttt{ACCEPT} markiert ist.
+    Die ATM $M$ akzeptiert genau dann, wenn am Ende dieses Algorithmus die Startkonfiguration $C_{start}$ mit \texttt{ACCEPT} markiert ist.
 \end{definition}
 \section{Alternierende Komplexitätsklassen} \label{section: Komplexitätsklassen bei alternierenden TMs}
-Aus dieser hinzugekommenen Art der Turingmaschinenen ergeben sich entsprechende Komplexitätsklassen,
+Aus dieser hinzugekommenen Art der Turingmaschinen ergeben sich entsprechende Komplexitätsklassen,
 um die Komplexität dieser Turingmaschinen formal beschreiben zu können:
-\begin{definition}[Alternierende Komplexitätsklassen] \cite{sipser_introduction_2012}
-    % Check: Muss hier nicht O Notation?
-    \\ATIME($f(n)$) ist die Menge Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine entschieden werden können. \\
-    ASPACE($f(n)$) ist die Menge aller Sprachen, die von einer $f(n)$-platzbeschränkten alternierenden Turingmaschine entschieden werden können.
-\end{definition}
-Anhand dieser allgemeinenen Definition der Komplexitätsklassen ergeben sich die konkreten Pendants zu den bisher bekannten Klassen:
 
-\begin{definition}[Die Klasse AL]\cite{sipser_introduction_2012}
-    $$\text{AL} = \bigcup_{c \in \mathbb{N}} \text{ASPACE}(c \cdot log(n))$$
-    AL ist die Menge aller Sprachen, die von einer logarithmisch-platzbeschränkten alternierenden Turingmaschine entschieden werden können.
+\begin{definition}[Die Klasse ATIME($f(n)$] \cite[S.410]{sipser_introduction_2012} \\
+    Die Klasse ATIME($f(n)$) ist die Menge  aller Sprachen, die von einer $f(n)$-zeitbeschränkten, alternierenden Turingmaschine entschieden werden können.
 \end{definition}
 
-\begin{definition}[Die Klasse AP]\cite{arora_computational_2009}
-    $$\text{AP} = \bigcup_{c \in \mathbb{N}} \text{ATIME}(n^c)$$
-    AP ist die Menge aller Sprachen, die von einer polynomiell-zeitbeschränkten alternierenden Turingmaschine entschieden werden können.
+\begin{definition}[Die Klasse ASPACE($f(n)$] \cite[S.410]{sipser_introduction_2012} \\
+    Die Klasse ASPACE($f(n)$) ist die Menge aller Sprachen, die von einer $f(n)$-platzbeschränkten, alternierenden Turingmaschine entschieden werden können.
 \end{definition}
 
-\begin{definition}[Die Klasse APSPACE]\cite{sipser_introduction_2012}
-    $$\text{APSPACE} = \bigcup_{c \in \mathbb{N}} \text{ASPACE}(n^c)$$
-    APSPACE ist die Menge aller Sprachen, die von einer polynomiell-platzbeschränkten alternierenden Turingmaschine entschieden werden können. 
+Anhand dieser allgemeinen Definitionen der alternierenden Komplexitätsklassen ergeben sich die konkreten Pendants zu den bisher bekannten Klassen:
+
+\begin{definition}[Die Klasse AL]\cite[S.410]{sipser_introduction_2012}
+    \begin{equation}
+        \text{AL} = \bigcup_{c \in \mathbb{N}} \text{ASPACE}(c \cdot log(n))
+    \end{equation}
+    AL ist die Menge aller Sprachen, die von einer logarithmisch-platzbeschränkten, alternierenden Turingmaschine entschieden werden können.
+\end{definition}
+
+\begin{definition}[Die Klasse AP]\cite[S.100]{arora_computational_2009}
+    \begin{equation}
+        \text{AP} = \bigcup_{c \in \mathbb{N}} \text{ATIME}(n^c)
+    \end{equation} 
+    AP ist die Menge aller Sprachen, die von einer polynomiell-zeitbeschränkten, alternierenden Turingmaschine entschieden werden können.
+\end{definition}
+
+\begin{definition}[Die Klasse APSPACE]\cite[S.410]{sipser_introduction_2012}
+    \begin{equation}
+        \text{APSPACE} = \bigcup_{c \in \mathbb{N}} \text{ASPACE}(n^c)
+    \end{equation}
+    APSPACE ist die Menge aller Sprachen, die von einer polynomiell-platzbeschränkten, alternierenden Turingmaschine entschieden werden können. 
 \end{definition}
 
 Besonders für die Klasse AP ergibt sich ein interessanter Zusammenhang zur platzbasierten Komplexitätsklasse PSPACE:
@@ -73,18 +82,18 @@ Besonders für die Klasse AP ergibt sich ein interessanter Zusammenhang zur plat
     AP = PSPACE
 \end{theorem}
 
-\begin{proof}[Beweis] \cite{sipser_introduction_2012}
+\begin{proof}[Beweis] \cite[S.411-412]{sipser_introduction_2012}
     Für den Beweis muss die Inklusion in beide Richtungen gezeigt werden, also AP $\subseteq$ PSPACE und PSPACE $\subseteq$ AP. \\
-    Die Inklusion PSPACE $\subseteq$ AP wird durch Simulation einer polynomiell zeitbeschränkten deterministischen Turingmaschine $S$ durch alternierende polynomiell zeitbeschränkte Turingmaschine $S'$ gezeigt.
-    Dabei wird eine angepasste Variante des Satz des von Savitch angewendet. Es wird also geprüft, ob im Konfigurationsgraph von $M$ eine Verbidnung einer Konfiguration $c_1$ zu $c_2$ in $k$, $k \in \mathbb{N}$ Schritten möglich ist.
-    Dazu wird existenziell eine Konfiguration $c_m$ zwischen $c_1$ und $c_2$ geraten, um dann anschließend zu raten, 
-    ob $c_1$ $c_m$ in $k/2$ Schritten erreichen kann, und ob $c_m$ $c_2$ in $k/2$ Schritten erreichten kann. Diese Prozedur wird rekurisv aufgerufen,
-    um so die Erreichbarkeit von zwei Konfigurationen zu prüfen. Die Länge eines solchen Pfades innerhalb einer Rekurision ist dabei polynomiell beschränkt, genau wie die Länge der Konfiguration $c_m$.
+    Die Inklusion PSPACE $\subseteq$ AP wird durch Simulation einer polynomiell platzbeschränkten deterministischen Turingmaschine $S$ durch alternierende polynomiell zeitbeschränkte Turingmaschine $S'$ gezeigt.
+    Dabei wird eine angepasste Variante des Satzes von Savitch angewendet. Es wird also geprüft, ob im Konfigurationsgraph von $M$ $c_1$ $c_2$ in $k$, $k \in \mathbb{N}$ Schritten erreichen kann.
+    Dazu wird existenziell eine Konfiguration $c_m$ zwischen $c_1$ und $c_2$ geraten, um dann anschließend universell zu prüfen, 
+    ob $c_1$ $c_m$ in $k/2$ Schritten erreichen kann, und ob $c_m$ $c_2$ in $k/2$ Schritten erreichen kann. Diese Prozedur wird rekursiv aufgerufen,
+    um so die Erreichbarkeit von zwei Konfigurationen zu prüfen. Die Länge eines solchen Pfades innerhalb einer Rekursion ist dabei polynomiell beschränkt.
     Somit kann eine alternierende Turingmaschine $M'$ die Berechnung einer deterministischen polynomiell zeitbeschränkte Turingmaschine $M$ simulieren.  
-    Die Inklusion AP $\subseteq$ PSPACE kann durch eine Simulation einer alternierenden polynomiell zeitbeschränkte Turingmaschine $M$ durch eine deterministische polynomiell platzbeschränkten Turingmaschine $M'$
+    Die Inklusion AP $\subseteq$ PSPACE kann durch eine Simulation einer alternierenden polynomiell zeitbeschränkte Turingmaschine $M$ durch eine deterministische polynomiell platzbeschränkte Turingmaschine $M'$
     gezeigt werden. Die Maschine $M'$ führt dabei eine Tiefensuche im Konfigurationsgraph von $M$ durch, und bestimmt dadurch die Knoten, die eine akzeptierende Berechnung repräsentieren.
     Die Maschine speichert dabei den Berechnungspfad ab. Sie akzeptiert genau dann, wenn die Maschine einen solchen Pfad \enquote{rekonstruieren} kann, sodass der Startknoten des Graphen,
     der der Startkonfiguration entspricht, akzeptiert.
-    Die Tiefe des Konfigurationsgraph ist durch Laufzeitbeschränkung der Maschine $M$ beschränkt, sie ist also polynomiell beschränkt, genau so wie eine Konfiguration, also ein Knoten in dem Berechnungsbaum,
-    lediglich polynomiellen Platzbedarf hat. Somit kann die Maschine $M'$ die Berechnung von $M$ deterministisch mit polynomiell beschränktem Platz simulieren. 
+    Die Tiefe des Konfigurationsgraph ist durch die Laufzeitbeschränkung der Maschine $M$ beschränkt, sie ist also polynomiell beschränkt. Gleiches gilt für eine Konfiguration, also ein Knoten in dem Berechnungsbaum,
+    der lediglich polynomiellen Platzbedarf hat. Somit kann die Maschine $M'$ die Berechnung von $M$ deterministisch mit polynomiell beschränktem Platz simulieren. 
 \end{proof}

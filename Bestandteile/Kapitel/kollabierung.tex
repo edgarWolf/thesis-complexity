@@ -1,114 +1,130 @@
-% TODO: Umbennnen in "Vollständigkeit" mit erstrem kapitel = Definition
-\chapter{Eigenschaften der PH} \label{chapter: Eigenschaften der PH}
-Nachdem die Polynomialzeithierarchie im vorigen Abschnitt über drei verschiedene Definitionen eingeführt wurde, beschäftigt sich dieser Abschnitt mit 
-weiteren Eigenschaften der PH und den in der Forschung formulierten Vermutungen, sowie den Konsequenzen, falls sich diese Vermutungen als falsch herausstellen sollten.
+\chapter{Kollabieren der PH} \label{chapter: Eigenschaften der PH}
+%Nachdem die Polynomialzeithierarchie im vorigen Abschnitt über drei verschiedene Definitionen eingeführt %wurde, beschäftigt sich dieser Abschnitt mit 
+%weiteren Eigenschaften der PH und den in der Forschung formulierten Vermutungen, sowie den Konsequenzen, %falls sich diese Vermutungen als falsch herausstellen sollten.
+Nachdem die Polynomialzeithierarchie im vorigen Kapitel \ref{chapter: Polynomialzeithierarchie (PH)} formal über verschiedene Definitionen eingeführt wurde, beschäftigt sich dieses Kapiel mit der Frage des Kollabierens der PH. Dabei bezeichnet das \emph{Kollabieren} der PH, dass diese nicht wie vermutet über beliebig viele Abstufungen $i \in \mathbb{N}$ verfügt, sondern lediglich über eine endliche Anzahl.
+Diese Vermutung ist aber nicht bewiesen und stellt eine offene Forschungsfrage dar \cite{arora_computational_2009}.
+Um auf verschiedene Szenarien eines solchen Kollabierens eingehen zu können, wird zunächst die Vollständigkeit innerhalb der PH definiert, um final die verschiedenen Szenarien eines Kollapses mit den resultierenden Konsequenzen zu disktuieren.
 
 \section{Vollständigkeit} \label{section: Vollständige Mengen innerhalb der PH}
 Die Vollständigkeit innerhalb der Polynomialzeithierarchie ist analog zu der Vollständigkeit der klassischen polynomiell beschränkten Klassen
 P, NP, coNP und PSPACE definiert \cite{arora_computational_2009}:
 
-\begin{definition}[$\Sigma^p_i$-Vollständigkeit] \cite{arora_computational_2009}
+\begin{definition}[$\Sigma^p_i$-Vollständigkeit] \cite[S.99]{arora_computational_2009} \\
     Eine Sprache $L$ ist $\Sigma^p_i$-vollständig, genau dann wenn $L \in \Sigma^p_i$ und wenn gilt: 
-    $$
-    \forall L' \in \Sigma^p_i : L' \leq_p L
-    $$
+    \begin{equation}
+        \forall L' \in \Sigma^p_i : L' \leq_p L        
+    \end{equation}
 \end{definition}
 
-Die Definition für $\Pi^p_i$-Vollständigkeit ergibt sich genau wie die für $\Sigma^p_i$ analog.
+Die Definition für $\Pi^p_i$-Vollständigkeit ergibt sich analog zur $\Sigma^p_i$-Vollständigkeit.
 Für den Fall $i = 1$ entsprechen diese Definitionen genau der Definition der NP- bzw. coNP-Vollständigkeit.
 Eine ähnliche Überlegung kann für vollständige Probleme der gesamten PH gemacht werden:
 
-\begin{definition}[PH-Vollständigkeit] \cite{arora_computational_2009}
-    Eine Sprache $L$ ist PH-vollständig, genau dann wenn $L \in \text{PH}$ und wenn gilt 
-    $$
+\begin{definition}[PH-Vollständigkeit] \cite[S.99]{arora_computational_2009} \\
+    Eine Sprache $L$ ist PH-vollständig, genau dann wenn $L \in \text{PH}$ und wenn gilt: 
+    \begin{equation}
     \forall L' \in \text{PH} : L' \leq_p L
-    $$
+    \end{equation}
 \end{definition}
 
 Es wird allerdings vermutet, dass keine solchen vollständigen Mengen für die gesamte Hierarchie existent sind, und sich die Vollständigkeit auf Probleme innerhalb der
-Stufen der PH beschränken. Die Konsequenzen für das Gegenteil dieser Annahme werden in \ref{section: Kollabieren der PH} betrachtet, diese werden als unplausibel gewertet \cite{arora_computational_2009}.
-Generell gilt, dass jede Stufe der PH als vollständiges Problem eine spezielle Ausprägung des \texttt{TQBF}-Problems als vollständiges Problem besitzt.
-Das \texttt{TQBF}-Problem sei dabei folgendermaßen definiert:
-\begin{definition}[\texttt{TQBF}] \cite{sipser_introduction_2012}
-    \textbf{Gegeben:} Eine quantifizierte boolsche Formel $\phi$ 
-    $$
-    Q_1 u_1 Q_2 u_2, ... \phi(u_1, u_2, ...)
-    $$ \\
-    wobei $Q_i \in \{\exists, \forall\}$
-    \textbf{Frage:} Ist $Q_1 u_1 Q_2 u_2, ... \phi(u_1, u_2, ...) = 1$?
-\end{definition}
-Das Problem ist als PSPACE-vollständig bekannt und stellt eine Verallgemeinerung des \texttt{SAT}-Problems dar \cite{arora_computational_2009}. \\
+Stufen der PH beschränken. Die Konsequenzen für das Gegenteil dieser Annahme werden in Abschnitt \ref{section: Kollabieren der PH} betrachtet, diese werden als unplausibel gewertet \cite{arora_computational_2009}.
+Generell gilt, dass jede Stufe der PH als vollständiges Problem eine spezielle Ausprägung des \texttt{TQBF}-Problems, also das Problem der Erfüllbarkeit einer vollständig quantifizierten boolschen Formel, als vollständiges Problem besitzt.
+\texttt{TQBF} ist als PSPACE-vollständig bekannt und stellt eine Verallgemeinerung des \texttt{SAT}-Problems dar \cite{arora_computational_2009}. \\
 Nun wird $\Sigma_i$-\texttt{SAT} definiert:
-\begin{definition}[$\Sigma_i$-\texttt{SAT}] \cite{arora_computational_2009}
-    \textbf{Gegeben:} Eine quantifizierte boolsche Formel $\phi$ mit $i-1$ Alternierungen der Quantoren $Q_i$ 
+\begin{definition}[$\Sigma_i$-\texttt{SAT}] \cite[S.99]{arora_computational_2009} \\
+    \textbf{Eingabe:} Eine quantifizierte boolsche Formel $F$ mit boolscher Formel $\phi$ mit $i-1$ Alternierungen der Quantoren $Q_i$ 
     $$
     \exists u_1 \forall u_2, ..., Q_i u_i \phi(u_1, u_2, ..., u_i)
     $$
     wobei $Q_i = \exists $ falls $i$ ungerade ist, $Q_i = \forall$ sonst \\
-    \textbf{Frage:} Ist $\exists u_1 \forall u_2, ..., Q_i u_i \phi(u_1, u_2, ..., u_i) = 1$ ?
+    \textbf{Frage:} Gibt es eine Belegung der $u_i$, sodass $F = 1$?
 \end{definition}
 
-Analog erfolgt die Definition für $\Pi^p_i$-\texttt{SAT}. Die Abgrenzung zu \texttt{TQBF} erfolgt über die Limitierung der Alternierungen für die Quantoren auf eine feste Anzahl $i$, während 
-die Anzahl der Alternierungen in \texttt{TQBF} variabel sind.
+Analog erfolgt die Definition für $\Pi^p_i$-\texttt{SAT}. Die Abgrenzung zu \texttt{TQBF} geschieht über die Limitierung der Alternierungen für die Quantoren auf eine feste Anzahl $i$, während 
+die Anzahl der Alternierungen in \texttt{TQBF} beliebig ist.
 Diese Entscheidungsprobleme sind $\Sigma^p_i$- und $\Pi^p_i$-vollständig, jedes Problem aus $\Sigma^p_i$- bzw. $\Pi^p_i$ kann darauf reduziert werden.
-Schafer und Umans haben einen Artikel verfasst, der vollständige Probleme ab der zweiten Stufe auflistet und die Komplexität dieser kommentiert \cite{schaefer_completeness_nodate}.
+Schafer und Umans haben ein Paper verfasst, welches vollständige Probleme ab der zweiten Stufe auflistet und die Komplexität dieser kommentiert \cite{schaefer_completeness_nodate}.
+Ein Beispiel für ein $\Sigma^p_2$ vollständiges-Problem ist \texttt{MIN DNF}:
+\begin{definition}[\texttt{MIN DNF}] \cite[S.4]{schaefer_completeness_nodate} \\
+    \textbf{Eingabe}: Eine boolsche Formel $\phi$ in disjunktiver Normalform und ein $k \in \mathbb{N}$.
+    Die Größe der Formel sei definiert als die Anzahl der Vorkommnisse der Literale in der Formel. \\
+    \textbf{Frage:} Gibt es eine Formel in disjunktiver Normalform $\psi$, sodass $\psi \equiv \phi$ mit maximaler Größe von k?  
+\end{definition}
 
 
-\section{Kollabieren} \label{section: Kollabieren der PH}
-Es wird vermutet, dass sich die Hierarchie über unendlich viele Stufen verfügt und eine Stufe $i$ in Stufe $i + 1$ echt enthalten ist,
-also dass $\Sigma^p_i \subset \Sigma^p_{i+1}$ und $\Pi^p_i \subset \Pi^p_{i+1}$ für $i \geq 1$ \cite{arora_computational_2009}. Diese Vermutung ist aber nicht bewiesen und stellt eine offene
-Forschungsfrage dar. Eine weitere Vermutung, bereits in \ref{section: Vollständige Mengen innerhalb der PH} artikuliert,  ist, dass es zwar vollständige Probleme je Stufe in der Polynomialzeithierarchie gibt, aber keine vollständige Mengen für die gesamte PH.
+\section{Szenarien} \label{section: Kollabieren der PH}
+%Es wird vermutet, dass sich die Hierarchie über unendlich viele Stufen verfügt und eine Stufe $i$ in Stufe %$i + 1$ echt enthalten ist,
+%also dass $\Sigma^p_i \subset \Sigma^p_{i+1}$ und $\Pi^p_i \subset \Pi^p_{i+1}$ für $i \geq 0$ gilt %\cite{arora_computational_2009}. Diese Vermutung ist aber nicht bewiesen und stellt eine offene %Forschungsfrage dar \cite{arora_computational_2009}. Die Konsequenz davon wäre, dass die PH auf eine %endliche Stufe \emph{kollabiert}. Es werden im weiteren Verlauf Szenarien dargelegt, die ein solches %Kollabieren zur Folge hätten.
+Die Vollständigkeit der PH spielt eine wichtige Rolle bei der Betrachtung eines möglichen Kollapses. Es werden nun drei Szenarien präsentiert, bei denen ein Kollabieren die Folge der jeweiligen Annahme ist.
+\subsection{Existenz einer PH-vollständigen Sprache $L$}\label{subsection: PH-vollst. Sprache}
 \begin{theorem}
     Sei $L$ eine PH-vollständige Sprache. Dann kollabiert die PH auf eine endliche Anzahl von Stufen. 
 \end{theorem}
 
-\begin{proof}[Beweis] \cite{arora_computational_2009}
+\begin{proof}[Beweis] \cite[S.98]{arora_computational_2009}
     Da $L$ PH-vollständig ist, sind alle Sprachen aus PH auf diese Sprache $L$ reduzierbar:
     $$
     \forall L' \in PH: L' \leq_p L
     $$
     Sei nun L in der Stufe $i$, $i \geq 0$, also $L \in \Sigma^p_i$. Da nun alle Sprachen auf $L$ reduziert werden können, insbesondere
-    auch Sprachen aus den Stufen $j > i$, sind auch diese Sprachen in Stufe i enthalten.
-    Das heißt, es gilt: 
-    $$
-    PH \subseteq \Sigma^p_i
-    $$ 
-    und das auch für alle Klassen $\Sigma^p_j, j> i$.
+    auch Sprachen aus den Stufen $j > i$, sind auch diese Sprachen in Stufe $i$ enthalten.
+    Das heißt, es gilt:
+    \begin{equation}
+        PH \subseteq \Sigma^p_i
+    \end{equation}
+    Dies gilt auch für alle Klassen $\Sigma^p_j, j> i$.
     Aus dieser Inklusion folgt somit direkt, dass die PH nur $i$ Stufen besitzt, und auf die Stufe $i$ kollabiert.
 \end{proof}
 
-Eine weitere Möglichkeit, sodass die PH kollabiert, besteht dann, wenn eine für eine Stufe $\Sigma^p_i = \Pi^p_i$ gilt:
+\subsection{$\Sigma^p_i = \Pi^p_i$}
 
 \begin{theorem}
     Sei $p$ ein Polynom und $\Sigma^p_i = \Pi^p_i$ für eine Stufe $i, i \geq 0$. Dann kollabiert die PH auf die Stufe $i$.
 \end{theorem}
 
-\begin{proof}[Beweis] \cite{rothe_komplexitatstheorie_2008}
-    Nach Voraussetzung gilt für alle Sprachen $L$ in $\Sigma^p_{i+1}$, sodass für jede Eingabe $x \in \{0,1\}^*$ eine Funktion mit 
-    $$
+\begin{proof}[Beweis] \cite[S.224-225]{rothe_komplexitatstheorie_2008}
+    Zu zeigen ist, dass wenn $\Sigma^p_i = \Pi^p_i$, dann folgt daraus $\Sigma^p_i = \Sigma^p_{i+1}$.
+    Definiere dafür eine Sprache $L \in \Sigma^p_{i+1}$:
+    \begin{equation}
     x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_{i+1}u_{i + 1} \in \{0,1\}^{p(|x|)} : M(x, u_1, ..., u_{i+1}) = 1
-    $$
-    existiert.
+    \end{equation}
     Dabei ist zu beachten, dass der Teil der Formel nach $\exists u_1$ eine Sprache $L' \in \Pi^p_i$ ist.
     Das heißt für die Sprache $L$:
-    \begin{align*}
-    x \in L \Leftrightarrow \exists u_1 \in {0,1}^{p(|x|)} \langle x, u_1 \rangle \in L'
-    \end{align*}
-    Nach der Annahme, dass  $\Sigma^p_i = \Pi^p_i$ gibt ist also auch $L' \in \Sigma^p_i$, womit gilt:
-    \begin{align*}
+    \begin{equation}
+    x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \langle x, u_1 \rangle \in L'
+    \end{equation}
+    Nach der Annahme, dass $\Sigma^p_i = \Pi^p_i$, also auch $L' \in \Sigma^p_i$ gilt, folgt daraus:
+    \begin{equation}
     \langle x, u_1 \rangle \in L' \Leftrightarrow \exists v_1 \forall v_2 ... Q_i v_i : M'(\langle x, u_1 \rangle, v_1, ..., v_i) = 1 
-    \end{align*}
-    Eingesetzt in die Definition der Sprache $L$ folgt daraus:
-    \begin{align*}
+    \end{equation}
+    Eingesetzt in die Definition der Sprache $L$ ergibt sich:
+    \begin{align}
     & x \in L \Leftrightarrow \exists u_1 \langle x, u_1 \rangle \in L' \\
     & \Leftrightarrow \exists u_1 (\exists v_1, \forall v_2, ..., Q_i v_i :  M'(\langle x, u_1 \rangle, v_1, ..., v_i) = 1) \\
     & \Leftrightarrow \exists \langle u_1, v_1 \rangle \forall v_2, ..., Q_i v_i : M'(\langle x, u_1 \rangle, v_1, ..., v_i) = 1
-    \end{align*}
-    Somit ist $L \in \Sigma^p_i$, aber zu Beginn des Beweises wurde $L$ beliebig aus $\Sigma^p_{i+1}$ gewählt, sodass nun $\Sigma^p_i = \Sigma^p_{i+1}$ gezeigt ist.
+    \end{align}
+    Somit ist $L \in \Sigma^p_i$, wurde aber ursprünglich beliebig aus $\Sigma^p_{i+1}$ gewählt, sodass nun $\Sigma^p_i = \Sigma^p_{i+1}$ gezeigt ist.
+    Das Kollabieren jeder Stufe $\Sigma^p_k$, mit $k \geq i$ auf die Stufe $\Sigma^p_i$ kann nun induktiv gezeigt werden:
+    \begin{equation}
+        \Sigma^p_{i+2} = \text{NP}^{\Sigma^p_{i+1}} = \text{NP}^{\Sigma^p_i} = \Sigma^p_{i+1} = \Sigma^p_i
+    \end{equation}
+\end{proof}
+Aus diesem Satz kann direkt gefolgert werden, dass wenn P $=$ NP oder NP $=$ coNP bewiesen wird, dann auch P $=$ PH gezeigt ist. Das heißt, die PH kollabiert in diesem Fall auf die Komplexitätsklasse P.
+
+\subsection{PH $=$ PSPACE}
+\begin{theorem}
+    Wenn PH $=$ PSPACE, dann kollabiert die PH auf eine endliche Anzahl an Stufen.
+\end{theorem}
+
+\begin{proof}[Beweis]\cite[S.98]{arora_computational_2009}
+    Wenn PH $=$ PSPACE, dann ist \texttt{TQBF} $\in$ PH. Da \texttt{TQBF} PSPACE-vollständig ist, und nun PH $=$ PSPACE gilt, ist \texttt{TQBF} auch PH-vollständig.
+    Das bedeutet, es gibt eine Sprache, nämlich \texttt{TQBF}, auf die alle anderen Sprachen $L' \in \text{PH}$ reduziert werden können.
+    Damit greift die Logik aus Sektion \ref{subsection: PH-vollst. Sprache}, sodass die PH auf eine endliche Anzahl an Stufen kollabiert.
 \end{proof}
 
-
-Sollte die PH kollabieren, so sind die Konzepte um die Berechnungskraft zu erhöhen in Wahrheit vergebens, denn die Probleme lassen sich in diesem bereits effizienter entscheiden.
-Im Extremfall würde das bedeuten P $=$ NP, sodass die gesamte Hierarchie sich auf die Klasse P beschränkt, und alle Probleme effizient deterministisch lösbar sind.
-Je kleiner das $i$ gewählt wird, sodass die Hierarchie kollabiert, umso weniger glaubwürdig erscheint diese Annahme.
-Gerade der Fall P $=$ NP scheint so unplausibel, dass die Annahme fortbesteht, dass es sich bei den Inklusionen in der PH um echte Teilmengen handelt.
+Sollte die PH kollabieren, so sind die Konzepte um die Berechnungskraft zu erhöhen in Wahrheit vergebens, denn die Probleme lassen sich bereits effizienter entscheiden.
+Im Extremfall würde dies PH $=$ P bedeuten, sodass sich die gesamte Hierarchie auf die Klasse P beschränkt, und alle Probleme aus der PH polynomiell deterministisch lösbar sind.
+Man kann intuitiv ausdrücken, dass die PH auf der Annahme beruht, dass der Nichtdeterminismus und der Zugriff auf ein Orakel eine erhöhte Berechnungsmächtigkeit zur Folge haben.
+Je kleiner $i$ gewählt wird, sodass die Hierarchie kollabiert, umso weniger glaubwürdig erscheint das Szenario eines Kollapses.
+Gerade der Fall PH $=$ P scheint so unplausibel, dass die Annahme fortbesteht, dass es sich bei den Inklusionen in der PH vermutlich um echte Teilmengen handelt, und keine vollständigen Mengen für die gesamte PH existieren.

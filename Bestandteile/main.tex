@@ -1,31 +1,29 @@
 \chapter{Einleitung}
 Eine der zentralen Fragen der Komplexitätstheorie ist, ob P $=$ NP gilt.  Es wird vermutet dass P echt in der Klasse NP enthalten ist, und für die Probleme aus NP tatsächlich keine deterministische Algorithmen in Polynomialzeit existieren, die diese Probleme entscheiden \cite{sipser_introduction_2012}.
 Das Gegenteil würde bedeuten, dass alle Probleme aus NP ebenfalls deterministisch in Polynomialzeit entschieden werden können, mit weitreichenden Auswirkungen für Berechnungen in unserer Welt \cite{arora_computational_2009}.
-Durch die Klasse coNP werden Probleme beschrieben, deren Komplement in NP liegen. Diese Probleme erscheinen nochmals schwieriger als die Probleme in NP, und auch hier stellt sich die Frage, ob coNP $=$ NP.
-Es werden aber nicht alle natürlichen Probleme durch diese drei Klassen charakterisiert. Probleme, die sicht nicht ausschließlich nichtdeterministisch entscheiden lassen, werden mittels diesen Klassen nicht hinreichend charakterisiert.
-Probleme wie z.B. das Problem \texttt{EXACT-INDSET}, bei der mit einer Eingabe eines Graphen $G$ und einer Zahl $k \in \mathbb{N}$ entschieden werden soll, ob das größte \texttt{INDSET} in $G$ genau die Größe $k$ hat,
-scheinen über kein \enquote{kurzes} Zertifikat zu verfügen \cite{arora_computational_2009}. Es scheint außerdem so, dass dieses Problem nicht allein nichtdeterministisch gelöst werden kann, als dass die Existenz eines \texttt{INDSET} entschieden werden muss, sowie für alle
-anderen \texttt{INDSET}-Instanzen geprüft werden muss, dass sie nicht größer $k$ sind \cite{arora_computational_2009}. 
-Ein Konzept, welches diese Probleme entsprechend erfasst ist die sog. \emph{Polynomialzeithierarchie}, die als Komplexitätsklasse die Probleme \enquote{zwischen} NP und PSPACE beschreibt \cite{arora_computational_2009}. 
+Durch die Klasse coNP werden Probleme beschrieben, deren Komplemente in NP liegen. Diese Probleme erscheinen nochmals schwieriger als die Probleme in NP, und auch hier stellt sich die Frage, ob coNP $=$ NP.
+Es werden aber nicht alle natürlichen Probleme durch diese drei Klassen charakterisiert. Probleme, die sich nicht ausschließlich nichtdeterministisch entscheiden lassen, werden mittels dieser Klassen nicht hinreichend charakterisiert.
+Probleme wie z.B. das Problem \texttt{EXACT-INDSET}, bei dem mit einer Eingabe eines Graphen $G$ und einer Zahl $k \in \mathbb{N}$ entschieden werden soll, ob das größte \texttt{INDSET} in $G$ genau die Größe $k$ hat,
+scheinen über kein \enquote{kurzes} Zertifikat zu verfügen \cite{arora_computational_2009}. Es scheint außerdem so, dass dieses Problem nicht allein nichtdeterministisch gelöst werden kann, als dass die Existenz eines \texttt{INDSET} entschieden werden muss, zugleich aber sichergestellt sein muss, dass es kein \texttt{INDSET} der Größe $l > k$ gibt \cite{arora_computational_2009}. 
+Ein Konzept, welches diese Probleme entsprechend erfasst, ist die sog. \emph{Polynomialzeithierarchie}, die als Komplexitätsklasse die Probleme \enquote{zwischen} P bzw. NP und PSPACE beschreibt \cite{arora_computational_2009}. 
 
 \section{Forschungsfragen}
 Die Polynomialzeithierarchie ist ein Forschungsgegenstand der Komplexitätstheorie, der bisweilen über einige offene Fragen verfügt. 
-So ist nicht bekannt, ob diese Hierarchie über endlich viele Stufen verfügt, oder es unendlich viele Abstufungen innerhalb dieser Hierarchie gibt.
+So ist nicht bekannt, ob diese Hierarchie über endlich viele Stufen verfügt, oder ob es unendlich viele Abstufungen innerhalb dieser Hierarchie gibt.
 Auch ist nicht klar, ob die Hierarchie über echte Teilmengen definiert ist, was im gegenteiligen Fall auch eine endliche Anzahl von Abstufungen impliziert.
-Im Kern besteht die Frage, ob Verallgemeinerungen des Nichtdeterminismus tatsächlich eine erhöhte Mächtigkeit im Kontext der Berechenbarkeit mit sich bringen, oder dies nur scheinbar der Fall ist.
+Im Kern besteht die Frage, ob der Nichtdeterminismus und seine Verallgemeinerungen tatsächlich eine erhöhte Mächtigkeit im Kontext der Berechenbarkeit mit sich bringen, oder ob dies nur scheinbar der Fall ist.
 
 \section{Ziel der Arbeit}
-Die Arbeit hat das Ziel einen Überblick über den aktuellen Forschungsstand über die Polynomialzeithierarchie zu erbringen. Dabei werden Kenntnisse über Konzepte wie der Nichtdeterminismus, sowie grundlegende Begriffe der Komplexitätstheorie
-wie die Komplexitätsklassen P, NP, und coNP, aber auch die platzbasierte Komplexitätsklasse PSPACE vorausgesetzt, sodass die Ausführungen dieser Arbeit auf diesen Wissensstand aufbauen können.
-Es werden die Vermutungen über die Eigenschaften der Polynomialzeithierarchie näher beleuchtet und erläutert, wieso die in der Forschung dominierenden Vermutungen plausibler erscheinen, als die Gegenannahme.
+Die Arbeit hat das Ziel einen Überblick über den aktuellen Forschungsstand über die Polynomialzeithierarchie zu erbringen. Dabei werden Kenntnisse über Konzepte, wie den Nichtdeterminismus, den grundlegende Begriffen der Komplexitätstheorie
+wie die Komplexitätsklassen P, NP, und coNP,  aber auch der platzbasierten Komplexitätsklasse PSPACE vorausgesetzt. Ebenso werden Kenntnisse über Turingmaschinen mit Zugriff auf ein Orakel erwartet, sodass die Ausführungen dieser Arbeit auf diesem Wissensstand aufbauen können, ohne all diese Begrifflichkeiten erneut zu definieren.
+Es werden die Vermutungen über die Eigenschaften der Polynomialzeithierarchie näher beleuchtet und erläutert, wieso diese plausibler erscheinen, als die gegenteilige Annahme.
 
 \section{Struktur der Arbeit}
 Zunächst wird das Konzept der \emph{Alternierung} eingeführt, anhand einer Analogie veranschaulicht, und auf Turingmaschinen angewendet. In diesem Zuge werden alternierende Komplexitätsklassen definiert, und der Zusammenhang 
 zwischen der Klasse AP und PSPACE dargestellt. Anschließend wird auf Grundlage dieses Wissens die Polynomialzeithierarchie formal eingeführt, sowie über die verschiedenen Definitionsmöglichkeiten definiert.
-Es werden dabei die Gemeinsamkeiten und Unterschiede der Definitionen genannt, sowie erläutert, aus welchem Grund diese Definitionen äquivalent sind.
-Zum Abschluss wird auf die Eigenschaften der Polynomialzeithierarchie eingegangen, sowie die Vermutungen der Forschung aufgezeigt. 
-Es werden die Konsequenzen der gegenteiligen Aussagen bezüglich den Vermutungen skizziert und erklärt, warum dies nicht überzeugend erscheint.
-Ein Fazit fasst alle Erkenntnisse aus den bisherigen Abschnitten zusammen und schließt die Arbeit mit einem Ausblick bezüglich weiterer möglicher Forschungsergebnisse ab.
+Zum Abschluss wird auf die Möglichkeit eines Kollabierens der Polynomialzeithierarchie eingegangen.
+Dabei werden verschiedene Szenarien eines solchen Kollaps skizziert und deren Folgen erörtert.
+Ein Fazit fasst alle Erkenntnisse aus den bisherigen Abschnitten zusammen und geht abschließend auf die Konsequenzen des möglichen Ausgangs ungeklärter Fragestellungen ein.
 
 \input{./Bestandteile/Kapitel/alternierende_maschinen}
 \input{./Bestandteile/Kapitel/definition}
